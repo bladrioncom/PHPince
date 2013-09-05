@@ -139,13 +139,12 @@ switch ($title_id){
 			$INSTALL_LOAD["URL"]["msg"] = "no";
 		}
 		if(array_key_exists('HTTP_MOD_REWRITE', $_SERVER)){
-			$INSLALL_CHECK++;
 			$INSTALL_LOAD["REWRITE"]["class"] = "ok";
 			$INSTALL_LOAD["REWRITE"]["text"] = "passed";
 			$INSTALL_LOAD["REWRITE"]["msg"] = "yes";
 		} else {
 			$INSTALL_LOAD["REWRITE"]["class"] = "no";
-			$INSTALL_LOAD["REWRITE"]["text"] = "unsupported";
+			$INSTALL_LOAD["REWRITE"]["text"] = "no tested";
 			$INSTALL_LOAD["REWRITE"]["msg"] = "no";
 		}
 		$PHPINCE_system["system"]["SYSTEM"] = $PHPINCE_VERSION["SYSTEM"];
@@ -168,7 +167,7 @@ switch ($title_id){
 			$INSTALL_LOAD["CURL"]["text"] = "unsupported";
 			$INSTALL_LOAD["CURL"]["msg"] = "no";
 		}
-		if($INSLALL_CHECK==6){
+		if($INSLALL_CHECK==5){
 			echo '<form method="post" action="index.php?step=3">';
 		}
 		echo '<table>
@@ -239,11 +238,11 @@ switch ($title_id){
                     <td class="'.$INSTALL_LOAD["REWRITE"]["class"].'">'.$INSTALL_LOAD["REWRITE"]["text"].'</td>
                 </tr>
             </table>';
-			if($INSLALL_CHECK<6){
+			if($INSLALL_CHECK<5){
 				echo '<h2 style="color:#9f1212;">Your webhosting unsupported PHPince Website :-( , check out our <a target="_blank" href="http://phpince.com/page_18">tested hosting</a> or report this installation on <a target="_blank" href="https://bitbucket.org/bladrioncom/phpince/issues">Git</a> or contact us on operator@phpince.com :-)</h2>';
 			}
             echo '<input type="submit" value="Next">';
-			if($INSLALL_CHECK==6){
+			if($INSLALL_CHECK==5){
 				echo '</form>';
 			}
 	break;
