@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------+
+| PHPince Website
+| Copyright (c) 2011 - 2013 Dominik Hulla
+| Web: http://phpince.com
+| Author: Dominik Hulla / dh@bladrion.com
+| Developer: Bladrion Technologies (http://bladrion.com)
++----------------------------------------------------------------------+
+| This program is free software: you can redistribute it and/or modify
+| it under the terms of the GNU General Public License as published by
+| the Free Software Foundation, either version 3 of the License, or
+| (at your option) any later version.
+| 
+| This program is distributed in the hope that it will be useful,
+| but WITHOUT ANY WARRANTY; without even the implied warranty of
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+| GNU General Public License for more details.
+| Removal of this copyright header is strictly prohibited 
+| without written permission from the original author(s).
+| 
+| You should have received a copy of the GNU General Public License
+| along with this program.  If not, see <http://www.gnu.org/licenses/>.
++----------------------------------------------------------------------*/
+* { padding:0; margin:0; }
+body { background:url(phpince_back.png) repeat; font-family:"Arial", Helvetica, sans-serif; }
+h2 { font-size:13px; color:#5e5e5e; font-weight:700; margin-bottom:7px; }
+div#container { width:360px; margin:0 auto 0 auto; background:url(phpince_box_center.png) repeat-y; }
+div#container div#content { width:360px; background:url(phpince_box_balls.png) no-repeat top, url(phpince_box_bottom.png) no-repeat bottom; padding-top:15px; }
+div#container div#content div.input { width:296px; margin:20px auto 0 auto; }
+div#container div#content div.input span { font-size:11px; color:#c3c3c3; width:296px; display:block; margin:5px auto 0 auto; text-align:right; }
+div#container div#content div.input span.nobr { margin:5px auto -15px auto; }
+div#container div#content div.input a { font-size:11px; color:#c3c3c3; width:296px; display:block; margin:5px auto 0 auto; text-align:right; text-decoration:none; }
+div#container div#content div.input a:hover { text-decoration:underline; }
+div#container div#content div.input input { width:270px; height:38px; background:url(phpince_input.png) no-repeat; border:none; font-size:13px; color:#b4b4b4; padding:0 13px 0 13px; }
+div#container div#content div.input input:focus { background:url(phpince_input_active.png) no-repeat; color:#5e5e5e; }
+div#container div#content div.input div#captcha { width:296px; height:38px; }
+div#container div#content div.input div#captcha img { margin:6px 0; float:left; }
+div#container div#content div.input input[name=phpince_captcha] { background:url(phpince_input_captcha.png) no-repeat; width:190px; height:38px; border:none; font-size:13px; color:#b4b4b4; padding:0 13px 0 13px; float:right; }
+div#container div#content div.input input[name=phpince_captcha]:focus { background:url(phpince_input_active_captcha.png) no-repeat; color:#5e5e5e; }
+div#container div#content div.terms { width:296px; margin:17px auto 0 auto; font-size:11px; text-align:center; }
+div#container div#content div#action { width:296px; height:51px; background:url(phpince_box_action.png) no-repeat; margin:20px auto 0 auto; padding:14px 30px 0px 30px; }
+div#container div#content div#action input[type=submit] { height:36px; background:url(phpince_submit_left.png) no-repeat left, url(phpince_submit_right.png) no-repeat right, url(phpince_submit.png) repeat-x; border:none; color:#FFFFFF; font-size:13px; text-shadow:#666 1px 1px 0px; padding:0px 13px 0px 13px; cursor:pointer; }
+div#container div#content div#action input[type=submit]:active { background:url(phpince_submit_active_left.png) no-repeat left, url(phpince_submit_active_right.png) no-repeat right, url(phpince_submit_active.png) repeat-x; }
+div#container div#content div#action a { height:26px; background:url(phpince_reg_left.png) no-repeat left, url(phpince_reg_right.png) no-repeat right, url(phpince_reg.png) repeat-x; border:none; color:#FFFFFF; font-size:13px; text-shadow:#666 1px 1px 0px; padding:10px 13px 0px 13px; text-decoration:none; float:right; cursor:pointer; }
+div#container div#content div#action a:active { background:url(phpince_reg_active_left.png) no-repeat left, url(phpince_reg_active_right.png) no-repeat right, url(phpince_reg_active.png) repeat-x; }
+div#container div#content div#footer { font-size:11px; color:#808080; text-align:center; padding:13px 0 13px 0; }
+div#container div#content div#footer a { color:#808080; text-decoration:none; }
+div#container div#content div#footer a:hover { text-decoration:underline; }
+div#phpince_error { width:100%; position:fixed; top:0; left:0; background:#FF9191; padding:10px 0 10px 0; border-bottom:#950000 solid 1px; color:#000000; font-family:Tahoma, Geneva, sans-serif; font-size:12px; text-align:center; }
+div#phpince_succes { width:100%; position:fixed; top:0; left:0; background:#DFFCDF; padding:10px 0 10px 0; border-bottom:#02BC02 solid 1px; color:#000000; font-family:Tahoma, Geneva, sans-serif; font-size:12px; text-align:center; }
