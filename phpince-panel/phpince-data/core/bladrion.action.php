@@ -183,7 +183,7 @@ if(bl_logincheck($PHPince_logon)){
 					echo "[ERROR]: Download is no available, \"allow_url_fopen\" is disabled in php.ini";
 					exit;
 				} 
-				bl_download("http://git.bladrion.com/phpince/get/master.zip", "bladrionupdate_file.zip");
+				bl_download("https://bitbucket.org/bladrioncom/phpince/get/master.zip", "bladrionupdate_file.zip");
 				if (file_exists("bladrionupdate_file.zip")) {
 					$file = 'bladrionupdate_file.zip';
 					$zipArchive = new ZipArchive();
