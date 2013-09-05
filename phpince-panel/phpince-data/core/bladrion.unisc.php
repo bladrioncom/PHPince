@@ -331,47 +331,58 @@ function bl_temp_content($array, $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG 
 			}
 		break;
 		default:
-		   if((!empty($array["topic_limit"]))&&(is_numeric($array["topic_limit"]))){
-			   	if(!empty($array["topic_style"])){
-					$style1 = $array["topic_style"];
-				} else {
-					$style1 = bl_temp_style(1 ,$PHPince_logon);
-				}
-				if(!empty($array["topic_error"])){
-					$style4 = $array["topic_error"];
-				} else {
-					$style4 = bl_temp_style(4 ,$PHPince_logon);
-				}
-				if(!empty($_GET["topic_cat"])){
-					$array["topic_cat"] = $_GET["topic_cat"];
-				}
-				if((!empty($array["topic_cat"]))&&(is_numeric($array["topic_cat"]))){
+			if((!empty($array["topic_limit"]))&&(is_numeric($array["topic_limit"]))){
+				$array["topic_limit"] = $array["topic_limit"];
+			} else {
+				$array["topic_limit"] = false;
+			}
+			if(!empty($array["topic_style"])){
+				$style1 = $array["topic_style"];
+			} else {
+				$style1 = bl_temp_style(1 ,$PHPince_logon);
+			}
+			if(!empty($array["topic_error"])){
+				$style4 = $array["topic_error"];
+			} else {
+				$style4 = bl_temp_style(4 ,$PHPince_logon);
+			}
+			if(!empty($_GET["topic_cat"])){
+				$array["topic_cat"] = $_GET["topic_cat"];
+			}
+			if((!empty($array["topic_cat"]))&&(is_numeric($array["topic_cat"]))){
+				if((!empty($array["topic_limit"]))&&(is_numeric($array["topic_limit"]))){
 					$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news WHERE ncat = ? ORDER BY id DESC LIMIT ".$array["topic_limit"], array($array["topic_cat"]), $PHPince_logon["login"]);
 				} else {
+					$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news WHERE ncat = ? ORDER BY id DESC", array($array["topic_cat"]), $PHPince_logon["login"]);
+				}
+			} else {
+				if((!empty($array["topic_limit"]))&&(is_numeric($array["topic_limit"]))){
 					$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news ORDER BY id DESC LIMIT ".$array["topic_limit"], array(), $PHPince_logon["login"]);
-				}
-				if($query->rowCount()>0){
-					$autor = array();
-					$autor_Q = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc", array(), $PHPince_logon["login"]);
-					while ($autor_QV = $autor_Q->fetch()) {
-						$autor[$autor_QV["id"]] = $autor_QV["account"];
-					}
-					$cat = array();
-					$cat_Q = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_ncat", array(), $PHPince_logon["login"]);
-					while ($cat_QV = $cat_Q->fetch()) {
-						$cat[$cat_QV["id"]] = $cat_QV["cat"];
-					}
-					while ($fetch = $query->fetch()) {
-						if($fetch["ncat"]=="0"){
-							$category = $PHPINCE_LANG[1511];
-						} else {
-							$category = $cat[$fetch["ncat"]];
-						}
-						echo bl_replace(array("{PHPINCE_ID}","{PHPINCE_TITLE}","{PHPINCE_TEXT}","{PHPINCE_AUTOR}","{PHPINCE_DATE}","{PHPINCE_DATE_D}","{PHPINCE_DATE_M}","{PHPINCE_DATE_Y}","{PHPINCE_TIME}","{PHPINCE_TIME_H}","{PHPINCE_TIME_M}","{PHPINCE_CAT}"),array($fetch["id"],$fetch["title"],$fetch["content"],$autor[$fetch["autor"]],date("j.n.Y",$fetch["created"]),date("j",$fetch["created"]),date("n",$fetch["created"]),date("Y",$fetch["created"]),bl_date_get($fetch["created"], "g:i a", "G:i", $PHPINCE_system),bl_date_get($fetch["created"], "g", "G", $PHPINCE_system),bl_date_get($fetch["created"], "i a", "i", $PHPINCE_system),$category),$style1);
-					}
 				} else {
-					echo $style4;
+					$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news ORDER BY id DESC", array(), $PHPince_logon["login"]);
 				}
+			}
+			if($query->rowCount()>0){
+				$autor = array();
+				$autor_Q = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc", array(), $PHPince_logon["login"]);
+				while ($autor_QV = $autor_Q->fetch()) {
+					$autor[$autor_QV["id"]] = $autor_QV["account"];
+				}
+				$cat = array();
+				$cat_Q = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_ncat", array(), $PHPince_logon["login"]);
+				while ($cat_QV = $cat_Q->fetch()) {
+					$cat[$cat_QV["id"]] = $cat_QV["cat"];
+				}
+				while ($fetch = $query->fetch()) {
+					if($fetch["ncat"]=="0"){
+						$category = $PHPINCE_LANG[1511];
+					} else {
+						$category = $cat[$fetch["ncat"]];
+					}
+					echo bl_replace(array("{PHPINCE_ID}","{PHPINCE_TITLE}","{PHPINCE_TEXT}","{PHPINCE_AUTOR}","{PHPINCE_DATE}","{PHPINCE_DATE_D}","{PHPINCE_DATE_M}","{PHPINCE_DATE_Y}","{PHPINCE_TIME}","{PHPINCE_TIME_H}","{PHPINCE_TIME_M}","{PHPINCE_CAT}"),array($fetch["id"],$fetch["title"],$fetch["content"],$autor[$fetch["autor"]],date("j.n.Y",$fetch["created"]),date("j",$fetch["created"]),date("n",$fetch["created"]),date("Y",$fetch["created"]),bl_date_get($fetch["created"], "g:i a", "G:i", $PHPINCE_system),bl_date_get($fetch["created"], "g", "G", $PHPINCE_system),bl_date_get($fetch["created"], "i a", "i", $PHPINCE_system),$category),$style1);
+				}
+			} else {
+				echo $style4;
 			}
 	}
 }

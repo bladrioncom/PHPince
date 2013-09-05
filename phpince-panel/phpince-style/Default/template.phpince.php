@@ -12,9 +12,7 @@
 ?>
 </ul>
 <?php
-	bl_temp_content(array(
-		"topic_limit" => 5
-	), $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG);
+	bl_temp_content(array(), $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG);
 ?>
 </body>
 </html>
