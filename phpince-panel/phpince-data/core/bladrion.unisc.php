@@ -117,18 +117,26 @@ function bl_inteldoc($PHPINCE_system){
 		$bname = 'Netscape';
 		$ub = "Netscape";
 	}
+	$bots = array("spider","bot","crawl","perl","link","retriever","walker","check","curl","archive","slurp");
+	foreach ($bots as $i => $bot) {
+		if (stripos($u_agent,$bot) !== false){
+			$bot_identifi = '1';
+		} else {
+			$bot_identifi = '0';
+		}
+	}
 	$myip = $_SERVER['REMOTE_ADDR'];
 	if((("64.233.160.0"<=$myip)&&("64.233.191.255">=$myip))||(("66.102.0.0"<=$myip)&&("66.102.15.255">=$myip))||(("66.249.64.0"<=$myip)&&("66.249.95.255">=$myip))||(("72.14.192.0"<=$myip)&&("72.14.255.255">=$myip))||(("74.125.0.0"<=$myip)&&("74.125.255.255">=$myip))||(("209.85.128.0"<=$myip)&&("209.85.255.255">=$myip))||(("216.239.32.0"<=$myip)&&("216.239.63.255">=$myip))){
 		$botname = "Google";
-		$bot = '1';
+		$bot_identifi = '1';
 	}
 	if((("64.4.0.0"<=$myip)&&("64.4.63.255">=$myip))||(("65.52.0.0"<=$myip)&&("65.55.255.255">=$myip))||(("131.253.21.0"<=$myip)&&("131.253.47.255">=$myip))||(("157.54.0.0"<=$myip)&&("157.60.255.255">=$myip))||(("207.46.0.0"<=$myip)&&("207.46.255.255">=$myip))||(("207.68.128.0"<=$myip)&&("207.68.207.255">=$myip))){
 		$botname = "Bing";
-		$bot = '1';
+		$bot_identifi = '1';
 	}
 	if((("8.12.144.0"<=$myip)&&("8.12.144.255">=$myip))||(("66.196.64.0"<=$myip)&&("66.196.127.255">=$myip))||(("66.228.160.0"<=$myip)&&("66.228.191.255">=$myip))||(("67.195.0.0"<=$myip)&&("67.195.255.255">=$myip))||(("68.142.192.0"<=$myip)&&("68.142.255.255">=$myip))||(("72.30.0.0"<=$myip)&&("72.30.255.255">=$myip))||(("74.6.0.0"<=$myip)&&("74.6.255.255">=$myip))||(("202.160.176.0"<=$myip)&&("202.160.191.255">=$myip))||(("209.191.64.0"<=$myip)&&("209.191.127.255">=$myip))){
 		$botname = "Yahoo";
-		$bot = '1';
+		$bot_identifi = '1';
 	}
 	$known = array('Version', $ub, 'other');
 	$pattern = '#(?<browser>' . join('|', $known) .
@@ -145,14 +153,6 @@ function bl_inteldoc($PHPINCE_system){
 	} else {
 		$version= $matches['version'][0];
 	}
-	$bots = array("spider","bot","crawl","perl","link","retriever","walker","check","curl","archive","slurp");
-	foreach ($bots as $i => $bot) {
-		if (stripos($u_agent,$bot) !== false){
-			$bot = '1';
-		} else {
-			$bot = '0';
-		}
-	}
 	if ($version==null || $version=="") {$version="?";}
 	require dirname(dirname(__FILE__))."/core/GeoIP.php";
 	$connect = geoip_open(dirname(dirname(__FILE__))."/core/GeoIP.dat", GEOIP_STANDARD);
@@ -164,7 +164,7 @@ function bl_inteldoc($PHPINCE_system){
 	if(empty($location_name)){
 		$location_name = "Unknown";
 	}
-	return array('browser' => $bname, 'browser_version' => $version, 'os' => $platform, 'bot' => $bot, 'location_code' => $location_code, 'location_name' => $location_name, 'bot_name' => $botname);
+	return array('browser' => $bname, 'browser_version' => $version, 'os' => $platform, 'bot' => $bot_identifi, 'location_code' => $location_code, 'location_name' => $location_name, 'bot_name' => $botname);
 }
 function bl_stopspam(){
 	$stopspam_visitorIP = $_SERVER['REMOTE_ADDR'];

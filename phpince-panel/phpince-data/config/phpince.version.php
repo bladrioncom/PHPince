@@ -23,10 +23,10 @@
 +----------------------------------------------------------------------*/
 $PHPINCE_VERSION = array(
 	"CORE" => "Bladrion UniSC 2.0",
-	"SYSTEM" => "3.0.1",
+	"SYSTEM" => "3.0.2",
 	"SUBVERSION" => "",
 	"EDITOR" => array(
-		"tinymce" => "TinyMCE 4.0.3",
+		"tinymce" => "TinyMCE 4.0.5",
 		"ckeditor" => "CKEditor 4.2"
 	)
 );
