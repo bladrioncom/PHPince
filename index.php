@@ -650,7 +650,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 	if(($PHPINCE_system["construction"]==1)&&(empty($PHPINCE_perms["construction"]))){
 		echo bl_replace(array("{PHPINCE_ERROR_TITLE}","{PHPINCE_ERROR_H1}","{PHPINCE_ERROR_TEXT}"),array($PHPINCE_system["title"]." &#8250; ".$PHPINCE_LANG[203], $PHPINCE_LANG[203],$PHPINCE_LANG[204]),bl_fread("phpince-panel/phpince-data/core/error.html"));
 	} else {
-		if(!empty($_GET["rss"])&&($_GET["rss"]=="1")){
+		if((!empty($_GET["rss"]))&&($_GET["rss"]=="1")){
 			header("Content-type: application/rss+xml");
 			echo "<?xml version=\"1.0\" encoding=\"".$PHPINCE_system["charset"]."\"?>\n";
 			echo "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n";
@@ -676,6 +676,34 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 			}
 			echo "</channel>\n";
 			echo "</rss>";
+		} else if((!empty($_GET["sitemap"]))&&($_GET["sitemap"]=="1")){
+			header("Content-type: text/xml");
+			echo "<?xml version=\"1.0\" encoding=\"".$PHPINCE_system["charset"]."\"?>\n";
+			echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+			echo "<url>\n";
+			echo "<loc>http://".$_SERVER["SERVER_NAME"]."</loc>\n";
+			echo "<changefreq>weekly</changefreq>\n";
+			echo "<priority>0.5</priority>\n";
+			echo "</url>\n";
+			$PHPINCE_SITEMAP_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_pages ORDER BY id DESC", array(), $PHPince_logon["login"]);
+			while ($PHPINCE_SITEMAP_V = $PHPINCE_SITEMAP_query->fetch()) {
+				echo "<url>\n";
+				echo "<loc>http://".$_SERVER["SERVER_NAME"]."/page/".$PHPINCE_SITEMAP_V["id"]."</loc>\n";
+				echo "<lastmod>".date("c", $PHPINCE_SITEMAP_V["edited"])."</lastmod>\n";
+				echo "<changefreq>weekly</changefreq>\n";
+				echo "<priority>0.5</priority>\n";
+				echo "</url>\n";
+			}
+			$PHPINCE_SITEMAP_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news ORDER BY id DESC", array(), $PHPince_logon["login"]);
+			while ($PHPINCE_SITEMAP_V = $PHPINCE_SITEMAP_query->fetch()) {
+				echo "<url>\n";
+				echo "<loc>http://".$_SERVER["SERVER_NAME"]."/topic/".$PHPINCE_SITEMAP_V["id"]."</loc>\n";
+				echo "<lastmod>".date("c", $PHPINCE_SITEMAP_V["edited"])."</lastmod>\n";
+				echo "<changefreq>weekly</changefreq>\n";
+				echo "<priority>0.5</priority>\n";
+				echo "</url>\n";
+			}
+			echo "</urlset>";
 		} else {
 			require("phpince-panel/phpince-style/".$PHPINCE_system["style"]."/template.phpince.php");
 		}
