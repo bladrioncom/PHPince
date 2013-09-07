@@ -222,7 +222,7 @@ if(bl_logincheck($PHPince_logon)){
 			}
 		break;
 		case "appinstall":
-			if(($PHPINCE_perms["apps"])&&(!preg_match("/^[a-zA-Z0-9 _-]+$/", $_GET["value"]))){
+			if(($PHPINCE_perms["apps"])&&(preg_match("/^[a-zA-Z0-9 _-]+$/", $_GET["value"]))){
 				$PHPINCE_pew = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_app WHERE datafiles = ?", array($_GET["value"]), $PHPince_logon["login"]);
 				if($PHPINCE_pew->rowCount()==0){
 					bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_app (datafiles) VALUES (?)", array($_GET["value"]), $PHPince_logon["login"]);
