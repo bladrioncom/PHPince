@@ -104,7 +104,7 @@ if($PHPINCE_perms["users"]){
 				  <td style=\"width:40px;\">";
 		if(($PHPINCE_pewf["userlevel"]<=$PHPINCE_user["userlevel"])&&(!($PHPINCE_pewf["id"]==$PHPINCE_user["id"]))){
 			echo "<a class=\"action edit\" href=\"/panel/users/edit?id=".$PHPINCE_pewf["id"]."\"></a>";
-			echo "<a id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'userdel')\"></a>";
+			echo "<a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'userdel')\"></a>";
 		}
 		echo "</td></tr>";
 		$i++;

@@ -181,7 +181,7 @@ if($PHPINCE_perms["news"]){
 							  <td style=\"width:40px;\">";
 					if(($PHPINCE_perms["newsall"])||($PHPINCE_user["id"]==$PHPINCE_pewf["autor"])){
 						echo "<a class=\"action edit\" href=\"/panel/news/edit?id=".$PHPINCE_pewf["id"]."\"></a>";
-						echo "<a id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'newsdel')\"></a>";
+						echo "<a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'newsdel')\"></a>";
 					}
 					echo "</td></tr>";
 					$i++;
@@ -218,7 +218,7 @@ if($PHPINCE_perms["news"]){
 							  <td style=\"width:40px;\">";
 					if($PHPINCE_perms["newscat"]){
 						echo "<a class=\"action edit\" href=\"/panel/news/cedit?id=".$PHPINCE_pewf["id"]."\"></a>";
-						echo "<a id=\"ac".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('c".$i."','".$PHPINCE_pewf["id"]."', 'cnewsdel')\"></a>";
+						echo "<a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"ac".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('c".$i."','".$PHPINCE_pewf["id"]."', 'cnewsdel')\"></a>";
 					}
 					echo "</td></tr>";
 					$i++;

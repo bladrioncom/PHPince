@@ -64,7 +64,7 @@ if($PHPINCE_perms["files"]){
 				echo "<tr id=\"".$i."\">
 				  <td style=\"width:auto;\"><a href=\"/file/".$PHPINCE_filesystem_checking."\" target=\"_blank\">".$PHPINCE_filesystem_checking."</a></td>
 				  <td style=\"width:auto;text-align:right;\">".bl_filesize(filesize("phpince-panel/phpince-upload/".$PHPINCE_filesystem_checking))."</td>
-				  <td style=\"width:20px;\"><a id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_filesystem_checking."', 'filedelete')\"></a></td>
+				  <td style=\"width:20px;\"><a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_filesystem_checking."', 'filedelete')\"></a></td>
 			  </tr>";
 			  $i++;
 			}

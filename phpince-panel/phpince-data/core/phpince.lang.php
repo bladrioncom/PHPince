@@ -55,6 +55,7 @@ $PHPINCE_LANG = array(
 		27 => 'Now update to',
 		28 => 'Updated system',
 		29 => 'en',
+		30 => 'Are you sure ?',
 	//Login system
 		100 => 'Login',
 		101 => 'Please fill account and password.',
@@ -367,6 +368,7 @@ $PHPINCE_LANG = array(
 		27 => 'Aktualizovať teraz na',
 		28 => 'Aktualizoval systém',
 		29 => 'sk',
+		30 => 'Ste si istý ?',
 	//Login system
 		100 => 'Prihlásenie',
 		101 => 'Prosím, vyplňte účet a heslo.',

@@ -109,10 +109,10 @@ if($PHPINCE_perms["nav"]){
 			echo "</div><div id=\"notitle\">";
 			$PHPINCE_NAV_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_nav ORDER BY id ASC", array(), $PHPince_logon["login"]);
 			while ($PHPINCE_NAV_V = $PHPINCE_NAV_query->fetch()) {
-				echo "<ul id=\"sortable\" class=\"sortable nav".$PHPINCE_NAV_V["id"]."\"><li class=\"disabled\">".$PHPINCE_LANG[902]." #".$PHPINCE_NAV_V["id"]."&nbsp;&raquo;&nbsp;<a href=\"/panel/nav/add?id=".$PHPINCE_NAV_V["id"]."\">".$PHPINCE_LANG[903]."</a><div><a id=\"anav".$PHPINCE_NAV_V["id"]."\" class=\"action cancel\" href=\"javascript: bl_delnavigation_nav('".$PHPINCE_NAV_V["id"]."')\"></a></div></li>";
+				echo "<ul id=\"sortable\" class=\"sortable nav".$PHPINCE_NAV_V["id"]."\"><li class=\"disabled\">".$PHPINCE_LANG[902]." #".$PHPINCE_NAV_V["id"]."&nbsp;&raquo;&nbsp;<a href=\"/panel/nav/add?id=".$PHPINCE_NAV_V["id"]."\">".$PHPINCE_LANG[903]."</a><div><a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"anav".$PHPINCE_NAV_V["id"]."\" class=\"action cancel\" href=\"javascript: bl_delnavigation_nav('".$PHPINCE_NAV_V["id"]."')\"></a></div></li>";
 				$PHPINCE_NAVi_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_nav_item WHERE nav = ? ORDER BY position ASC", array($PHPINCE_NAV_V["id"]), $PHPince_logon["login"]);
 				while ($PHPINCE_NAVi_V = $PHPINCE_NAVi_query->fetch()) {
-					echo "<li id=\"page_".$PHPINCE_NAVi_V["id"]."\"><span></span>".$PHPINCE_NAVi_V["name"]."<div><a href=\"/panel/nav/edit?id=".$PHPINCE_NAVi_V["id"]."\" class=\"action edit\"></a><a id=\"a".$PHPINCE_NAVi_V["id"]."\" class=\"action cancel\" href=\"javascript: bl_delnavigation('".$PHPINCE_NAVi_V["id"]."')\"></a></div></li>";
+					echo "<li id=\"page_".$PHPINCE_NAVi_V["id"]."\"><span></span>".$PHPINCE_NAVi_V["name"]."<div><a href=\"/panel/nav/edit?id=".$PHPINCE_NAVi_V["id"]."\" class=\"action edit\"></a><a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$PHPINCE_NAVi_V["id"]."\" class=\"action cancel\" href=\"javascript: bl_delnavigation('".$PHPINCE_NAVi_V["id"]."')\"></a></div></li>";
 				}
 				echo "<li class=\"disabled\"></li></ul>";
 			}

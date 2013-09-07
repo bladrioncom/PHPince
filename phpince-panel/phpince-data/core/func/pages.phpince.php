@@ -106,7 +106,7 @@ if($PHPINCE_perms["pages"]){
 							  <td style=\"width:40px;\">";
 					if(($PHPINCE_perms["pagesall"])||($PHPINCE_user["id"]==$PHPINCE_pewf["autor"])){
 						echo "<a class=\"action edit\" href=\"/panel/pages/edit?id=".$PHPINCE_pewf["id"]."\"></a>";
-						echo "<a id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'pagedel')\"></a>";
+						echo "<a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_pewf["id"]."', 'pagedel')\"></a>";
 					}
 					echo "</td></tr>";
 					$i++;
