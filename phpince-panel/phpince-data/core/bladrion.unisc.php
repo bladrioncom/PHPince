@@ -309,7 +309,9 @@ function bl_temp_content($array, $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG 
 		break;
 		case "app":
 			if((!empty($_GET["id"]))&&(is_numeric($_GET["id"]))){
-
+				if(bl_logincheck($PHPince_logon)){
+					$PHPINCE_user = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE id = ? LIMIT 1", array($_COOKIE["phpinceacc"]), $PHPince_logon["login"])->fetch();
+				}
 				if(!empty($array["plugin_notfound"])){
 					$style7 = $array["plugin_notfound"];
 				} else {
