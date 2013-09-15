@@ -94,9 +94,10 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
     </header>
     <div id=\"wrapper\">
     	<div id=\"container\">
-        	<nav>
-            	<h2>".$PHPINCE_LANG[7]."</h2>
-            	<ul>";
+        	<nav>";
+			if($PHPINCE_perms){
+            	echo "<h2>".$PHPINCE_LANG[7]."</h2>";
+            	echo "<ul>";
 					if($PHPINCE_perms["news"]){
                 		echo "<li><a href=\"/panel/news\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/news.png\">".$PHPINCE_LANG[14]."</a></li>";
 					}
@@ -130,8 +131,9 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 					if($PHPINCE_perms["script"]){
                     	echo "<li><a href=\"/panel/script\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/script.png\">".$PHPINCE_LANG[23]."</a></li>";
 					}
-                echo "</ul>
-                <h2>".$PHPINCE_LANG[8]."</h2>
+                echo "</ul>";
+			}
+                echo "<h2>".$PHPINCE_LANG[8]."</h2>
             	<ul>
                 	<li><a href=\"/panel/account\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/usero.png\">".$PHPINCE_LANG[24]."</a></li>
                     <li><a href=\"/panel/changepassword\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/ban.png\">".$PHPINCE_LANG[25]."</a></li>
