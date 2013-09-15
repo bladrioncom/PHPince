@@ -21,13 +21,24 @@
 | You should have received a copy of the GNU General Public License
 | along with this program.  If not, see <http://www.gnu.org/licenses/>.
 +----------------------------------------------------------------------*/
-$PHPINCE_VERSION = array(
-	"CORE" => "Bladrion UniSC 2.0",
-	"SYSTEM" => "3.0.9",
-	"SUBVERSION" => "",
-	"EDITOR" => array(
-		"tinymce" => "TinyMCE 4.0.5",
-		"ckeditor" => "CKEditor 4.2"
-	)
-);
+require "../phpince-data/core/bladrion.unisc.php";
+if(!file_exists("../phpince-data/config/phpince.connect.php")) {
+	exit;
+}
+require "../phpince-data/config/phpince.connect.php";
+$PHPince_logon = bl_connect($PHPINCE_config, "mysql");
+$PHPINCE_config = false;
+if(!$PHPince_logon["active"]){
+	exit;
+}
+if(bl_logincheck($PHPince_logon)){
+	$PHPINCE_user = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE id = ? LIMIT 1", array($_COOKIE["phpinceacc"]), $PHPince_logon["login"])->fetch();
+	$PHPINCE_perms = bl_getperms($PHPINCE_user, $PHPince_logon);
+	if($PHPINCE_perms["script"]){
+		require "../phpince-data/config/phpince.secured.php";
+		if(file_exists("../phpince-data/report/phpince.error_log-".bl_hash($PHPINCE_secured["hash"]).".log")){
+			unlink("../phpince-data/report/phpince.error_log-".bl_hash($PHPINCE_secured["hash"]).".log");
+		}
+	}
+}
 ?>
