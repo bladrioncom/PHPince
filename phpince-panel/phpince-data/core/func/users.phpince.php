@@ -23,6 +23,43 @@
 +----------------------------------------------------------------------*/
 if($PHPINCE_perms["users"]){
 	switch($_GET["subf"]){
+		case "add":
+			echo "<form method=\"post\" action=\"\">";
+			echo "<div id=\"title\">
+				  <h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/user_40.png\">&nbsp;".$PHPINCE_LANG[1300]."&nbsp;&raquo;&nbsp;<span>".$PHPINCE_LANG[1309]."</span></h1>";
+			if(!empty($_POST)){
+				if((empty($_POST["account"]))||(empty($_POST["mail"]))||(empty($_POST["pass"]))){
+					echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[114]."</div>";
+				} else {
+					if((!preg_match("/[^a-zA-Z0-9]/", $_POST["account"]))&&(!preg_match("/[^a-zA-Z0-9]/", $_POST["pass"]))&&(preg_match("/^[_a-zA-Z0-9-]+(.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+.)+[a-zA-Z]{2,4}$/", $_POST["mail"]))){
+						$PHPINCE_REG_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE account = ? OR email = ?", array($_POST["account"], $_POST["mail"]), $PHPince_logon["login"]);
+						if($PHPINCE_REG_query->rowCount()==0){
+							bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_acc (account, password, email, lastip, regdate, userlevel) VALUES (?, ?, ?, ?, ?, ?)", array($_POST["account"], bl_hash($_POST["pass"]), $_POST["mail"], $_SERVER['REMOTE_ADDR'], bl_date(), $_POST["level"]), $PHPince_logon["login"]);
+							bl_redirect("/panel/".$_GET["func"]);
+						} else {
+							echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[116]."</div>";
+						}
+					} else {
+						echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[117]."</div>";
+					}
+				}
+			}
+			echo "</div><div id=\"notitle\">";
+			echo "<h4>".$PHPINCE_LANG[105]." | <span>".$PHPINCE_LANG[603]."</span></h4><input name=\"account\" type=\"text\" value=\"".$_POST["account"]."\">";
+			echo "<h4>".$PHPINCE_LANG[701]."</h4><input name=\"mail\" type=\"text\" value=\"".$_POST["mail"]."\">";
+			echo "<h4>".$PHPINCE_LANG[106]." | <span>".$PHPINCE_LANG[603]."</span></h4><input name=\"pass\" type=\"password\" autocomplete=\"off\">";
+			echo "<h4>".$PHPINCE_LANG[703]."</h4><select name=\"level\">";
+			for ($i = 0; $i <= $PHPINCE_user["userlevel"]; $i++) {
+				if($_POST["level"]==$i){
+					echo "<option value=\"".$i."\" selected>".bl_getrankname($i,$PHPINCE_LANG)."</option>";
+				} else {
+					echo "<option value=\"".$i."\">".bl_getrankname($i,$PHPINCE_LANG)."</option>";
+				}
+			}
+			echo "</select>";
+			echo "<input type=\"submit\" value=\"".$PHPINCE_LANG[9]."\">";
+			echo "</div></form>";
+		break;
 		case "edit":
 			if(is_numeric($_GET["id"])){
 				$PHPINCE_NAV_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE id = ?", array($_GET["id"]), $PHPince_logon["login"]);
@@ -59,7 +96,7 @@ if($PHPINCE_perms["users"]){
 					echo "<h4>".$PHPINCE_LANG[701]."</h4><input name=\"mail\" type=\"text\" value=\"".$PHPINCE_NAV_V["email"]."\">";
 					echo "<h4>".$PHPINCE_LANG[602]." | <span>".$PHPINCE_LANG[603]."</span></h4><input name=\"pass\" type=\"password\" autocomplete=\"off\">";
 					echo "<h4>".$PHPINCE_LANG[703]."</h4><select name=\"level\">";
-					for ($i = 1; $i <= 10; $i++) {
+					for ($i = 0; $i <= $PHPINCE_user["userlevel"]; $i++) {
 						if($PHPINCE_NAV_V["userlevel"]==$i){
 							echo "<option value=\"".$i."\" selected>".bl_getrankname($i,$PHPINCE_LANG)."</option>";
 						} else {
@@ -81,7 +118,7 @@ if($PHPINCE_perms["users"]){
 		break;
 		case "":
 	echo "<div id=\"title\">
-          <h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/user_40.png\">&nbsp;".$PHPINCE_LANG[1300]."</h1>";
+          <h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/user_40.png\">&nbsp;".$PHPINCE_LANG[1300]."&nbsp;&raquo;&nbsp;<a href=\"/panel/users/add\">".$PHPINCE_LANG[1309]."</a></h1>";
     echo "</div><div id=\"notitle\">";
 	echo "<table class=\"styled\">
 			  <tr>

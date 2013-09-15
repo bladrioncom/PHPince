@@ -231,6 +231,7 @@ $PHPINCE_LANG = array(
 		1306 => 'Fill in the correct format',
 		1307 => 'Edit user',
 		1308 => 'Change user password',
+		1309 => 'Create new user',
 	//Webadmin: Pages
 		1400 => 'Pages',
 		1401 => 'Create new',
@@ -544,6 +545,7 @@ $PHPINCE_LANG = array(
 		1306 => 'Vyplňte polia v správnom formáte',
 		1307 => 'Upravil užívateľa',
 		1308 => 'Zmenil heslo užívateľovi',
+		1309 => 'Vytvoriť užívateľa',
 	//Webadmin: Pages
 		1400 => 'Stránky',
 		1401 => 'Vytvoriť novú',
