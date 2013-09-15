@@ -187,7 +187,7 @@ function bl_metaheader($array, $special_title = ""){
 		$special_title = " &#8250; ".$special_title;
 	}
 	echo "<title>".$array["title"].$special_title."</title>\n<meta name=\"description\" content=\"".$array["desc"]."\" />\n<meta name=\"keywords\" content=\"".$array["key"]."\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"".$array["title"]." - RSS\" href=\"http://".$_SERVER['SERVER_NAME']."/rss.xml\" />\n";
-	if($array["bot"]==1){
+	if($array["bot"]==0){
 		echo "<meta name=\"robots\" content=\"noindex,nofollow\" />\n";
 	}
 	if((empty($_GET["phpince-panel"]))&&($array["inteldoc"]==1)){
