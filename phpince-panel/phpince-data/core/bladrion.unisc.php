@@ -801,7 +801,7 @@ function bl_sysversion($PHPINCE_system, $let = false){
 		if($let==true){
 			return($get);
 		} else {
-			if(!($PHPINCE_system["system"]["SYSTEM"]>=$get)){
+			if(!(str_replace(".", "", $PHPINCE_system["system"]["SYSTEM"])>=str_replace(".", "", $get))){
 				return(false);
 			} else {
 				return(true);
