@@ -351,7 +351,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 					if(empty($_POST["phpincekey"])){
 						echo "<div id=\"phpince_error\">".$PHPINCE_LANG[114]."</div>";
 					} else {
-						if($_COOKIE["bladrioncapcha"]==bl_hash($_POST["phpince_captcha"])){
+						if($_COOKIE["bladrioncapcha"]==sha1($_POST["phpince_captcha"])){
 							if(!preg_match("/[^a-zA-Z0-9]/", $_POST["phpincekey"])){
 								bl_query("DELETE FROM ".$PHPince_logon["prefix"]."phpince_resetpass WHERE expire < ?", array(bl_date()), $PHPince_logon["login"]);
 								$PHPINCE_PASS_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_resetpass WHERE hash = ?", array($_POST["phpincekey"]), $PHPince_logon["login"]);
@@ -418,7 +418,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 					if((empty($_POST["phpinceacc"]))||(empty($_POST["phpincepass"]))||(empty($_POST["phpincepass2"]))){
 						echo "<div id=\"phpince_error\">".$PHPINCE_LANG[114]."</div>";
 					} else {
-						if($_COOKIE["bladrioncapcha"]==bl_hash($_POST["phpince_captcha"])){
+						if($_COOKIE["bladrioncapcha"]==sha1($_POST["phpince_captcha"])){
 							if((!preg_match("/[^a-zA-Z0-9]/", $_POST["phpinceacc"]))&&(!preg_match("/[^a-zA-Z0-9]/", $_POST["phpincepass"]))&&(!preg_match("/[^a-zA-Z0-9]/", $_POST["phpincepass2"]))){
 								if($_POST["phpincepass"]==$_POST["phpincepass2"]){
 									$PHPINCE_PASS_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE account = ?", array($_POST["phpinceacc"]), $PHPince_logon["login"]);
@@ -501,7 +501,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 					if((empty($_POST["phpinceuser"]))||(empty($_POST["phpincepass"]))||(empty($_POST["phpincemail"]))){
 						echo "<div id=\"phpince_error\">".$PHPINCE_LANG[114]."</div>";
 					} else {
-						if($_COOKIE["bladrioncapcha"]==bl_hash($_POST["phpince_captcha"])){
+						if($_COOKIE["bladrioncapcha"]==sha1($_POST["phpince_captcha"])){
 							if((!preg_match("/[^a-zA-Z0-9]/", $_POST["phpinceuser"]))&&(!preg_match("/[^a-zA-Z0-9]/", $_POST["phpincepass"]))&&(preg_match("/^[_a-zA-Z0-9-]+(.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+.)+[a-zA-Z]{2,4}$/", $_POST["phpincemail"]))){
 								$PHPINCE_REG_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE account = ? OR email = ?", array($_POST["phpinceuser"], $_POST["phpincemail"]), $PHPince_logon["login"]);
 								if($PHPINCE_REG_query->rowCount()==0){
