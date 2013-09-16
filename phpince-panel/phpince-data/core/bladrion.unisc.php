@@ -803,10 +803,10 @@ function bl_sysversion($PHPINCE_system, $let = false){
 		if($let==true){
 			return($get);
 		} else {
-			if(!(str_replace(".", "", $PHPINCE_system["system"]["SYSTEM"])>=str_replace(".", "", $get))){
-				return(false);
-			} else {
+			if(str_replace(".", "", $PHPINCE_system["system"]["SYSTEM"])==str_replace(".", "", $get)){
 				return(true);
+			} else {
+				return(false);
 			}
 		}
 		fclose($open);
