@@ -78,7 +78,7 @@ if($PHPINCE_perms["news"]){
 				if($PHPINCE_NAV_query->rowCount()==1){
 					$PHPINCE_NAV_V = $PHPINCE_NAV_query->fetch();
 					echo "<div id=\"title\">
-					  <h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/page_40.png\">&nbsp;".$PHPINCE_LANG[1500]."&nbsp;&raquo;&nbsp;<span>".$PHPINCE_LANG[1501]."</span></h1>";
+					  <h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/page_40.png\">&nbsp;".$PHPINCE_LANG[1500]."&nbsp;&raquo;&nbsp;<span>".$PHPINCE_LANG[1523].": #".$_GET["id"]."</span></h1>";
 					if(!empty($_POST)){
 						if((empty($_POST["title"]))||(empty($_POST["text"]))){
 							echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[1505]."</div>";

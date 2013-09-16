@@ -244,6 +244,7 @@ $PHPINCE_LANG = array(
 		1407 => 'Edit Page:',
 		1408 => 'The page successfully modified, <a href="/panel/pages">back to pages</a>',
 		1409 => 'Delete page:',
+		1411 => 'Editing page',
 	//Webadmin: News
 		1500 => 'Articles',
 		1501 => 'Create new',
@@ -268,6 +269,7 @@ $PHPINCE_LANG = array(
 		1520 => 'Edited category:',
 		1521 => 'Added new category:',
 		1522 => 'No category were found',
+		1523 => 'Editing article',
 	//Webadmin: Apps
 		1600 => 'Modules',
 		1601 => 'Folder module',
@@ -558,6 +560,7 @@ $PHPINCE_LANG = array(
 		1407 => 'Upravil stránku:',
 		1408 => 'Stránka úspešne upravená, <a href="/panel/pages">späť na stránky</a>',
 		1409 => 'Zmazal stránku:',
+		1411 => 'Úprava stránky',
 	//Webadmin: News
 		1500 => 'Články',
 		1501 => 'Vytvoriť nový',
@@ -582,6 +585,7 @@ $PHPINCE_LANG = array(
 		1520 => 'Upravil kategóriu:',
 		1521 => 'Pridal novú kategóriu:',
 		1522 => 'Neboli vytvorené žiadne kategórie',
+		1523 => 'Úprava článku',
 	//Webadmin: Apps
 		1600 => 'Moduly',
 		1601 => 'Priečinok modulu',
