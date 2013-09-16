@@ -188,7 +188,9 @@ function bl_metaheader($array, $special_title = ""){
 	}
 	echo "<title>".$array["title"].$special_title."</title>\n<meta name=\"description\" content=\"".$array["desc"]."\" />\n<meta name=\"keywords\" content=\"".$array["key"]."\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"".$array["title"]." - RSS\" href=\"http://".$_SERVER['SERVER_NAME']."/rss.xml\" />\n";
 	if($array["bot"]==0){
-		echo "<meta name=\"robots\" content=\"noindex,nofollow\" />\n";
+		echo "<meta name=\"robots\" content=\"noindex, nofollow\" />\n";
+	} else {
+		echo "<meta name=\"robots\" content=\"index, follow\" />\n";
 	}
 	if((empty($_GET["phpince-panel"]))&&($array["inteldoc"]==1)){
 		echo "<script type=\"text/javascript\">\n (function() {\n var bl_ana = document.createElement('script'); bl_ana.type = 'text/javascript'; bl_ana.async = true;\n bl_ana.src = '/phpince-panel/phpince-data/core/bladrion.dog.js';\n var bl_anas = document.getElementsByTagName('script')[0]; bl_anas.parentNode.insertBefore(bl_ana, bl_anas);\n })();\n</script>\n";
