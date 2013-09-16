@@ -258,7 +258,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				echo "</div>";
 				if($PHPINCE_perms["systemlog"]){
 				echo "<p>&nbsp;</p><div id=\"title\">
-                	<h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/sett_40.png\">&nbsp;".$PHPINCE_LANG[317]." | <a target=\"_blank\" href=\"/phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log\">Error log</a></h1>
+                	<h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/sett_40.png\">&nbsp;".$PHPINCE_LANG[317]." | <a target=\"_blank\" href=\"/phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log\">Error log</a>&nbsp;<span style=\"font-size:14px;\">[".bl_filesize(filesize("phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log"))."]</span></h1>
                 </div><div id=\"notitle\"><table class=\"styled\">
                         <tr>
 							<th>#</th>
