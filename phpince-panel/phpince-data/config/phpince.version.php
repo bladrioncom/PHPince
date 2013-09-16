@@ -23,7 +23,7 @@
 +----------------------------------------------------------------------*/
 $PHPINCE_VERSION = array(
 	"CORE" => "Bladrion UniSC 2.0",
-	"SYSTEM" => "3.1.2",
+	"SYSTEM" => "3.1.3",
 	"SUBVERSION" => "",
 	"EDITOR" => array(
 		"tinymce" => "TinyMCE 4.0.6",
