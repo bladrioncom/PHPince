@@ -174,6 +174,7 @@ $PHPINCE_LANG = array(
 		806 => 'Upload a new file:',
 		807 => 'Delete file:',
 		808 => 'Edit file:',
+		809 => 'View',
 	//Webadmin: Navigation
 		900 => 'Navigation',
 		901 => 'Create a new navigation',
@@ -490,6 +491,7 @@ $PHPINCE_LANG = array(
 		806 => 'Nahral nový súbor:',
 		807 => 'Zmazal súbor:',
 		808 => 'Upravil súbor:',
+		809 => 'Zobraziť',
 	//Webadmin: Navigation
 		900 => 'Navigácia',
 		901 => 'Vytvoriť novú navigáciu',

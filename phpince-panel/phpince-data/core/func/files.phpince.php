@@ -62,7 +62,12 @@ if($PHPINCE_perms["files"]){
 		while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
 			if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && $PHPINCE_filesystem_checking != '.htaccess'){
 				echo "<tr id=\"".$i."\">
-				  <td style=\"width:auto;\"><a href=\"/file/".$PHPINCE_filesystem_checking."\" target=\"_blank\">".$PHPINCE_filesystem_checking."</a></td>
+				  <td style=\"width:auto;\"><a href=\"/file/".$PHPINCE_filesystem_checking."\" target=\"_blank\">".$PHPINCE_filesystem_checking."</a>";
+				$PHPINCE_filesystem_checking_suf = end(explode(".", strtolower($PHPINCE_filesystem_checking)));
+				if(($PHPINCE_filesystem_checking_suf=="gif")||($PHPINCE_filesystem_checking_suf=="png")||($PHPINCE_filesystem_checking_suf=="jpg")||($PHPINCE_filesystem_checking_suf=="jpeg")||($PHPINCE_filesystem_checking_suf=="swf")){
+					echo "&nbsp;<span style=\"font-size:12px;\">(<a class=\"slider\" href=\"/file/".$PHPINCE_filesystem_checking."\">".$PHPINCE_LANG[809]."</a>)</span>";
+				}
+				echo "</td>
 				  <td style=\"width:auto;text-align:right;\">".bl_filesize(filesize("phpince-panel/phpince-upload/".$PHPINCE_filesystem_checking))."</td>
 				  <td style=\"width:20px;\"><a onClick=\"return confirm('".$PHPINCE_LANG[30]."')\" id=\"a".$i."\" class=\"action cancel\" href=\"javascript: bl_runaction('".$i."','".$PHPINCE_filesystem_checking."', 'filedelete')\"></a></td>
 			  </tr>";
