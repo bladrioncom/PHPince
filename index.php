@@ -77,6 +77,8 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 <script type=\"text/javascript\" src=\"/phpince-panel/phpince-data/core/bladrion.script.js\"></script>
 <link rel=\"stylesheet\" type=\"text/css\" href=\"/phpince-panel/phpince-data/codemirror/codemirror.css\">
 <script type=\"text/javascript\" src=\"/phpince-panel/phpince-data/codemirror/codemirror.js\"></script>
+<script type=\"text/javascript\" src=\"/phpince-panel/phpince-data/colorbox/jquery.colorbox-min.js\"></script>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/phpince-panel/phpince-data/colorbox/colorbox.css\" />
 </head>
 <body>
 	<header>
@@ -258,7 +260,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				echo "</div>";
 				if($PHPINCE_perms["systemlog"]){
 				echo "<p>&nbsp;</p><div id=\"title\">
-                	<h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/sett_40.png\">&nbsp;".$PHPINCE_LANG[317]." | <a target=\"_blank\" href=\"/phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log\">Error log</a>&nbsp;<span style=\"font-size:14px;\">[".bl_filesize(filesize("phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log"))."]</span></h1>
+                	<h1><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/sett_40.png\">&nbsp;".$PHPINCE_LANG[317]." | <a target=\"_blank\" href=\"/phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log\" class=\"iframe\" title=\"PHPince - Error Log\">Error log</a>&nbsp;<span style=\"font-size:14px;\">[".bl_filesize(filesize("phpince-panel/phpince-data/report/phpince.error_log-".$PHPINCE_secured.".log"))."]</span></h1>
                 </div><div id=\"notitle\"><table class=\"styled\">
                         <tr>
 							<th>#</th>
