@@ -699,10 +699,10 @@ function bl_statics_gsys($type, $PHPINCE_analytics){
 			$PHPINCE_analytics_stats[] = $PHPINCE_analytics[$i][$type];
 		}
 	}
-	$PHPINCE_analytics_stats["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
-	$PHPINCE_analytics_stats["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
-	$PHPINCE_analytics_stats["count_all"] = array_sum($PHPINCE_analytics_stats["count"]);
-	return($PHPINCE_analytics_stats);
+	$PHPINCE_analytics_stats_print["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count_all"] = array_sum($PHPINCE_analytics_stats_print["count"]);
+	return($PHPINCE_analytics_stats_print);
 }
 function bl_statics_gbot($PHPINCE_analytics){
 	$PHPINCE_analytics_stats = array();
@@ -711,10 +711,10 @@ function bl_statics_gbot($PHPINCE_analytics){
 			$PHPINCE_analytics_stats[] = $PHPINCE_analytics[$i]["bot_name"];
 		}
 	}
-	$PHPINCE_analytics_stats["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
-	$PHPINCE_analytics_stats["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
-	$PHPINCE_analytics_stats["count_all"] = array_sum($PHPINCE_analytics_stats["count"]);
-	return($PHPINCE_analytics_stats);
+	$PHPINCE_analytics_stats_print["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count_all"] = array_sum($PHPINCE_analytics_stats_print["count"]);
+	return($PHPINCE_analytics_stats_print);
 }
 function bl_statics_gbot_count($type, $PHPINCE_analytics){
 	$PHPINCE_analytics_stats = array();

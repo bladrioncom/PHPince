@@ -45,9 +45,12 @@ if($PHPINCE_perms["users"]){
 				}
 			}
 			echo "</div><div id=\"notitle\">";
+			if(empty($_POST["account"])){ $_POST["account"] = ""; }
 			echo "<h4>".$PHPINCE_LANG[105]." | <span>".$PHPINCE_LANG[603]."</span></h4><input name=\"account\" type=\"text\" value=\"".$_POST["account"]."\">";
+			if(empty($_POST["mail"])){ $_POST["mail"] = "@"; }
 			echo "<h4>".$PHPINCE_LANG[701]."</h4><input name=\"mail\" type=\"text\" value=\"".$_POST["mail"]."\">";
 			echo "<h4>".$PHPINCE_LANG[106]." | <span>".$PHPINCE_LANG[603]."</span></h4><input name=\"pass\" type=\"password\" autocomplete=\"off\">";
+			if(empty($_POST["level"])){ $_POST["level"] = ""; }
 			echo "<h4>".$PHPINCE_LANG[703]."</h4><select name=\"level\">";
 			for ($i = 0; $i <= $PHPINCE_user["userlevel"]; $i++) {
 				if($_POST["level"]==$i){
