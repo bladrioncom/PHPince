@@ -61,10 +61,32 @@ if($PHPINCE_perms["files"]){
 		$i = 1;
 		while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
 			if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && $PHPINCE_filesystem_checking != '.htaccess'){
-				echo "<tr id=\"".$i."\">
-				  <td style=\"width:auto;\"><a href=\"/file/".$PHPINCE_filesystem_checking."\" target=\"_blank\">".$PHPINCE_filesystem_checking."</a>";
 				$PHPINCE_filesystem_checking_suf = end(explode(".", strtolower($PHPINCE_filesystem_checking)));
-				if(($PHPINCE_filesystem_checking_suf=="gif")||($PHPINCE_filesystem_checking_suf=="png")||($PHPINCE_filesystem_checking_suf=="jpg")||($PHPINCE_filesystem_checking_suf=="jpeg")||($PHPINCE_filesystem_checking_suf=="swf")){
+				echo "<tr id=\"".$i."\">
+				  <td style=\"width:auto;\">";
+				if(($PHPINCE_filesystem_checking_suf=="gif")||($PHPINCE_filesystem_checking_suf=="png")||($PHPINCE_filesystem_checking_suf=="jpg")||($PHPINCE_filesystem_checking_suf=="jpeg")||($PHPINCE_filesystem_checking_suf=="bmp")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/img.png\" alt=\"Image\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="pdf")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/pdf.png\" alt=\"PDF\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="doc")||($PHPINCE_filesystem_checking_suf=="docx")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/word.png\" alt=\"Microsoft - Word\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="xls")||($PHPINCE_filesystem_checking_suf=="xlsx")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/excel.png\" alt=\"Microsoft - Excel\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="swf")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/swf.png\" alt=\"Flash\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="htm")||($PHPINCE_filesystem_checking_suf=="html")||($PHPINCE_filesystem_checking_suf=="xml")||($PHPINCE_filesystem_checking_suf=="txt")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/html.png\" alt=\"Document\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="indd")||($PHPINCE_filesystem_checking_suf=="indt")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/id.png\" alt=\"Adobe - InDesign\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="ai")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/ai.png\" alt=\"Adobe - Illustator\" />&nbsp;";
+				} else if(($PHPINCE_filesystem_checking_suf=="psd")){
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/psd.png\" alt=\"Adobe - Photoshop\" />&nbsp;";
+				} else {
+					echo "<img style=\"margin-bottom:-3px;\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/filetp/none.png\" alt=\"Unknown\" />&nbsp;";
+				}
+				 echo "<a href=\"/file/".$PHPINCE_filesystem_checking."\" target=\"_blank\">".$PHPINCE_filesystem_checking."</a>";
+				if(($PHPINCE_filesystem_checking_suf=="gif")||($PHPINCE_filesystem_checking_suf=="png")||($PHPINCE_filesystem_checking_suf=="jpg")||($PHPINCE_filesystem_checking_suf=="jpeg")){
 					echo "&nbsp;<span style=\"font-size:12px;\">(<a class=\"slider\" href=\"/file/".$PHPINCE_filesystem_checking."\">".$PHPINCE_LANG[809]."</a>)</span>";
 				}
 				echo "</td>
