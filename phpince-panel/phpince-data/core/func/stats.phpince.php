@@ -139,7 +139,7 @@ if($PHPINCE_perms["stats"]){
 			  </tr>";
 	for ($i = 0; $i < count($PHPINCE_analytics_os["name"]); $i++) {
 		echo "<tr>
-				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/os/".str_replace(' ', '-', $PHPINCE_analytics_os["name"][$i]).".gif\">&nbsp;".$PHPINCE_analytics_os["name"][$i]."</td>
+				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/os/".str_replace(' ', '-', $PHPINCE_analytics_os["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_os["name"][$i]."</td>
 				  <td>".round(($PHPINCE_analytics_os["count"][$i]/($PHPINCE_analytics_os["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_os["count"][$i]."]</td>";
 		echo "</tr>";
 	}

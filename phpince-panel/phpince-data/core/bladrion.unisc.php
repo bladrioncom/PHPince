@@ -97,6 +97,14 @@ function bl_inteldoc($PHPINCE_system){
 		$platform = 'Mac';
 	} elseif (preg_match('/windows|win32/i', $u_agent)) {
 		$platform = 'Windows';
+	} elseif (preg_match('/Android/i', $u_agent)) {
+		$platform = 'Android';
+	} elseif (preg_match('/BlackBerry/i', $u_agent)) {
+		$platform = 'BlackBerry';
+	} elseif (preg_match('/iPhone|iPad/i', $u_agent)) {
+		$platform = 'iOS';
+	} elseif (preg_match('/Symbian|SymbOS/i', $u_agent)) {
+		$platform = 'Symbian';
 	}
 	if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)){
 		$bname = 'Internet Explorer';
