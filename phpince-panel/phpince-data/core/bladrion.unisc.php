@@ -97,7 +97,8 @@ function bl_inteldoc($PHPINCE_system){
 		$platform = 'Mac';
 	} elseif (preg_match('/windows|win32/i', $u_agent)) {
 		$platform = 'Windows';
-	} elseif (preg_match('/Android/i', $u_agent)) {
+	}
+	if (preg_match('/Android/i', $u_agent)) {
 		$platform = 'Android';
 	} elseif (preg_match('/BlackBerry/i', $u_agent)) {
 		$platform = 'BlackBerry';
