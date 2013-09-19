@@ -706,10 +706,15 @@ function bl_statics_gsys($type, $PHPINCE_analytics){
 	for ($i = 0; $i < count($PHPINCE_analytics); $i++) {
 		if($PHPINCE_analytics[$i]["bot"]=="0"){
 			$PHPINCE_analytics_stats[] = $PHPINCE_analytics[$i][$type];
+			if($PHPINCE_analytics[$i]["time"]>=mktime('00','00','01',date('m'),date('d'),date('Y'))){
+				$PHPINCE_analytics_stats_now[] = $PHPINCE_analytics[$i][$type];
+			}
 		}
 	}
 	$PHPINCE_analytics_stats_print["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
 	$PHPINCE_analytics_stats_print["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count_now"] = array_values(array_count_values($PHPINCE_analytics_stats_now));
+	$PHPINCE_analytics_stats_print["count_now_all"] = array_sum($PHPINCE_analytics_stats_print["count_now"]);
 	$PHPINCE_analytics_stats_print["count_all"] = array_sum($PHPINCE_analytics_stats_print["count"]);
 	return($PHPINCE_analytics_stats_print);
 }
@@ -718,10 +723,15 @@ function bl_statics_gbot($PHPINCE_analytics){
 	for ($i = 0; $i < count($PHPINCE_analytics); $i++) {
 		if($PHPINCE_analytics[$i]["bot"]=="1"){
 			$PHPINCE_analytics_stats[] = $PHPINCE_analytics[$i]["bot_name"];
+			if($PHPINCE_analytics[$i]["time"]>=mktime('00','00','01',date('m'),date('d'),date('Y'))){
+				$PHPINCE_analytics_stats_now[] = $PHPINCE_analytics[$i]["bot_name"];
+			}
 		}
 	}
 	$PHPINCE_analytics_stats_print["name"] = array_keys(array_count_values($PHPINCE_analytics_stats));
 	$PHPINCE_analytics_stats_print["count"] = array_values(array_count_values($PHPINCE_analytics_stats));
+	$PHPINCE_analytics_stats_print["count_now"] = array_values(array_count_values($PHPINCE_analytics_stats_now));
+	$PHPINCE_analytics_stats_print["count_now_all"] = array_sum($PHPINCE_analytics_stats_print["count_now"]);
 	$PHPINCE_analytics_stats_print["count_all"] = array_sum($PHPINCE_analytics_stats_print["count"]);
 	return($PHPINCE_analytics_stats_print);
 }

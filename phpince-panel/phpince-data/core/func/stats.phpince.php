@@ -118,15 +118,22 @@ if($PHPINCE_perms["stats"]){
 	echo "<table class=\"styled\">
 			  <tr>
 				  <th style=\"width:auto;\">".$PHPINCE_LANG[1810]."</th>
+				  <th style=\"width:20%;\">".$PHPINCE_LANG[1817]."</th>
 				  <th style=\"width:20%;\">".$PHPINCE_LANG[1811]."</th>
 			  </tr>";
 	for ($i = 0; $i < count($PHPINCE_analytics_browser["name"]); $i++) {
 		echo "<tr>
-				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/browser/".str_replace(' ', '-', $PHPINCE_analytics_browser["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_browser["name"][$i]."</td>
-				  <td>".round(($PHPINCE_analytics_browser["count"][$i]/($PHPINCE_analytics_browser["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_browser["count"][$i]."]</td>";
+				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/browser/".str_replace(' ', '-', $PHPINCE_analytics_browser["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_browser["name"][$i]."</td>";
+		if(empty($PHPINCE_analytics_browser["count_now"][$i])){
+			echo "<td>0%&nbsp;[0]</td>";
+		} else {
+			echo "<td>".round(($PHPINCE_analytics_browser["count_now"][$i]/($PHPINCE_analytics_browser["count_now_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_browser["count_now"][$i]."]</td>";
+		}
+		echo "<td>".round(($PHPINCE_analytics_browser["count"][$i]/($PHPINCE_analytics_browser["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_browser["count"][$i]."]</td>";
 		echo "</tr>";
 	}
 	echo "<tr>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -135,15 +142,22 @@ if($PHPINCE_perms["stats"]){
 	echo "<table class=\"styled\">
 			  <tr>
 				  <th style=\"width:auto;\">".$PHPINCE_LANG[1810]."</th>
+				  <th style=\"width:20%;\">".$PHPINCE_LANG[1817]."</th>
 				  <th style=\"width:20%;\">".$PHPINCE_LANG[1811]."</th>
 			  </tr>";
 	for ($i = 0; $i < count($PHPINCE_analytics_os["name"]); $i++) {
 		echo "<tr>
-				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/os/".str_replace(' ', '-', $PHPINCE_analytics_os["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_os["name"][$i]."</td>
-				  <td>".round(($PHPINCE_analytics_os["count"][$i]/($PHPINCE_analytics_os["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_os["count"][$i]."]</td>";
+				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/os/".str_replace(' ', '-', $PHPINCE_analytics_os["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_os["name"][$i]."</td>";
+		if(empty($PHPINCE_analytics_os["count_now"][$i])){
+			echo "<td>0%&nbsp;[0]</td>";
+		} else {
+			echo "<td>".round(($PHPINCE_analytics_os["count_now"][$i]/($PHPINCE_analytics_os["count_now_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_os["count_now"][$i]."]</td>";
+		}
+		echo "<td>".round(($PHPINCE_analytics_os["count"][$i]/($PHPINCE_analytics_os["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_os["count"][$i]."]</td>";
 		echo "</tr>";
 	}
 	echo "<tr>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -152,15 +166,22 @@ if($PHPINCE_perms["stats"]){
 	echo "<table class=\"styled\">
 			  <tr>
 				  <th style=\"width:auto;\">".$PHPINCE_LANG[1810]."</th>
+				  <th style=\"width:20%;\">".$PHPINCE_LANG[1817]."</th>
 				  <th style=\"width:20%;\">".$PHPINCE_LANG[1811]."</th>
 			  </tr>";
 	for ($i = 0; $i < count($PHPINCE_analytics_locate["name"]); $i++) {
 		echo "<tr>
-				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/flag/".str_replace(' ', '-', $PHPINCE_analytics_locate["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_locate["name"][$i]."</td>
-				  <td>".round(($PHPINCE_analytics_locate["count"][$i]/($PHPINCE_analytics_locate["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_locate["count"][$i]."]</td>";
+				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/flag/".str_replace(' ', '-', $PHPINCE_analytics_locate["name"][$i]).".png\">&nbsp;".$PHPINCE_analytics_locate["name"][$i]."</td>";
+		if(empty($PHPINCE_analytics_locate["count_now"][$i])){
+			echo "<td>0%&nbsp;[0]</td>";
+		} else {
+			echo "<td>".round(($PHPINCE_analytics_locate["count_now"][$i]/($PHPINCE_analytics_locate["count_now_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_locate["count_now"][$i]."]</td>";
+		}
+		echo "<td>".round(($PHPINCE_analytics_locate["count"][$i]/($PHPINCE_analytics_locate["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_locate["count"][$i]."]</td>";
 		echo "</tr>";
 	}
 	echo "<tr>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -169,15 +190,22 @@ if($PHPINCE_perms["stats"]){
 	echo "<table class=\"styled\">
 			  <tr>
 				  <th style=\"width:auto;\">".$PHPINCE_LANG[1810]."</th>
+				  <th style=\"width:20%;\">".$PHPINCE_LANG[1817]."</th>
 				  <th style=\"width:20%;\">".$PHPINCE_LANG[1811]."</th>
 			  </tr>";
 	for ($i = 0; $i < count($PHPINCE_analytics_bot["name"]); $i++) {
 		echo "<tr>
-				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/bot/".$PHPINCE_analytics_bot["name"][$i].".png\">&nbsp;".$PHPINCE_analytics_bot["name"][$i]."</td>
-				  <td>".round(($PHPINCE_analytics_bot["count"][$i]/($PHPINCE_analytics_bot["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_bot["count"][$i]."]</td>";
+				  <td><img style=\"vertical-align:middle\" src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/stats/bot/".$PHPINCE_analytics_bot["name"][$i].".png\">&nbsp;".$PHPINCE_analytics_bot["name"][$i]."</td>";
+		if(empty($PHPINCE_analytics_bot["count_now"][$i])){
+			echo "<td>0%&nbsp;[0]</td>";
+		} else {
+			echo "<td>".round(($PHPINCE_analytics_bot["count_now"][$i]/($PHPINCE_analytics_bot["count_now_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_bot["count_now"][$i]."]</td>";
+		}
+		echo "<td>".round(($PHPINCE_analytics_bot["count"][$i]/($PHPINCE_analytics_bot["count_all"]/100)),2)."%&nbsp;[".$PHPINCE_analytics_bot["count"][$i]."]</td>";
 		echo "</tr>";
 	}
 	echo "<tr>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
