@@ -24,13 +24,15 @@
 ob_start();
 require "phpince-panel/phpince-data/core/bladrion.unisc.php";
 if(!file_exists("phpince-panel/phpince-data/config/phpince.connect.php")) {
-	echo bl_replace(array("{PHPINCE_ERROR_TITLE}","{PHPINCE_ERROR_H1}","{PHPINCE_ERROR_TEXT}"),array("Config not found","Config not found","Please reinstall the system or find/create configuration file."),bl_fread("phpince-panel/phpince-data/core/error.html"));
+	header('HTTP/1.0 404 Not Found');
+	echo bl_replace(array("{PHPINCE_ERROR_TITLE}","{PHPINCE_ERROR_H1}","{PHPINCE_ERROR_TEXT}"),array("Config not found","Config not found","Please install the system PHPince. <a href=\"install/\">Install now !</a>"),bl_fread("phpince-panel/phpince-data/core/error.html"));
 	exit;
 }
 require "phpince-panel/phpince-data/config/phpince.connect.php";
 $PHPince_logon = bl_connect($PHPINCE_config, "mysql");
 $PHPINCE_config = false;
 if(!$PHPince_logon["active"]){
+	header('HTTP/1.0 404 Not Found');
 	echo bl_replace(array("{PHPINCE_ERROR_TITLE}","{PHPINCE_ERROR_H1}","{PHPINCE_ERROR_TEXT}"),array("Connect to database failed","Connect to database failed","Connecting to your database failed. Database server is probably not available."),bl_fread("phpince-panel/phpince-data/core/error.html"));
 	exit;
 }
@@ -657,6 +659,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 		$PHPINCE_perms = bl_getperms($PHPINCE_user, $PHPince_logon);
 	}
 	if(($PHPINCE_system["construction"]==1)&&(empty($PHPINCE_perms["construction"]))){
+		header('HTTP/1.0 404 Not Found');
 		echo bl_replace(array("{PHPINCE_ERROR_TITLE}","{PHPINCE_ERROR_H1}","{PHPINCE_ERROR_TEXT}"),array($PHPINCE_system["title"]." &#8250; ".$PHPINCE_LANG[203], $PHPINCE_LANG[203],$PHPINCE_LANG[204]),bl_fread("phpince-panel/phpince-data/core/error.html"));
 	} else {
 		if((!empty($_GET["rss"]))&&($_GET["rss"]=="1")){

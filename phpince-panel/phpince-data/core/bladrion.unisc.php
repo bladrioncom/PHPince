@@ -274,9 +274,11 @@ function bl_temp_content($array, $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG 
 					$fetch = $query->fetch();
 					echo bl_replace(array("{PHPINCE_ID}","{PHPINCE_TITLE}","{PHPINCE_TEXT}","{PHPINCE_AUTOR}","{PHPINCE_DATE}","{PHPINCE_DATE_D}","{PHPINCE_DATE_M}","{PHPINCE_DATE_Y}","{PHPINCE_TIME}","{PHPINCE_TIME_H}","{PHPINCE_TIME_M}"),array($fetch["id"],$fetch["title"],$fetch["content"],$autor[$fetch["autor"]],date("j.n.Y",$fetch["created"]),date("j",$fetch["created"]),date("n",$fetch["created"]),date("Y",$fetch["created"]),bl_date_get($fetch["created"], "g:i a", "G:i", $PHPINCE_system),bl_date_get($fetch["created"], "g", "G", $PHPINCE_system),bl_date_get($fetch["created"], "i a", "i", $PHPINCE_system)),$style5);
 				} else {
+					header('HTTP/1.0 404 Not Found');
 					echo $style6;
 				}
 			} else {
+				header('HTTP/1.0 404 Not Found');
 				bl_redirect("/");
 			}
 		break;
@@ -312,9 +314,11 @@ function bl_temp_content($array, $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG 
 					}
 					echo bl_replace(array("{PHPINCE_ID}","{PHPINCE_TITLE}","{PHPINCE_TEXT}","{PHPINCE_AUTOR}","{PHPINCE_DATE}","{PHPINCE_DATE_D}","{PHPINCE_DATE_M}","{PHPINCE_DATE_Y}","{PHPINCE_TIME}","{PHPINCE_TIME_H}","{PHPINCE_TIME_M}","{PHPINCE_CAT}"),array($fetch["id"],$fetch["title"],$fetch["content"],$autor[$fetch["autor"]],date("j.n.Y",$fetch["created"]),date("j",$fetch["created"]),date("n",$fetch["created"]),date("Y",$fetch["created"]),bl_date_get($fetch["created"], "g:i a", "G:i", $PHPINCE_system),bl_date_get($fetch["created"], "g", "G", $PHPINCE_system),bl_date_get($fetch["created"], "i a", "i", $PHPINCE_system),$category),$style2);
 				} else {
+					header('HTTP/1.0 404 Not Found');
 					echo $style3;
 				}
 			} else {
+				header('HTTP/1.0 404 Not Found');
 				bl_redirect("/");
 			}
 		break;
@@ -337,9 +341,11 @@ function bl_temp_content($array, $PHPince_logon, $PHPINCE_system, $PHPINCE_LANG 
 						echo $style7;
 					}
 				} else {
+					header('HTTP/1.0 404 Not Found');
 					echo $style7;
 				}
 			} else {
+				header('HTTP/1.0 404 Not Found');
 				bl_redirect("/");
 			}
 		break;
