@@ -692,7 +692,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 			echo "<url>\n";
 			echo "<loc>http://".$_SERVER["SERVER_NAME"]."</loc>\n";
 			echo "<changefreq>weekly</changefreq>\n";
-			echo "<priority>0.5</priority>\n";
+			echo "<priority>0.8</priority>\n";
 			echo "</url>\n";
 			$PHPINCE_SITEMAP_query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_pages ORDER BY id DESC", array(), $PHPince_logon["login"]);
 			while ($PHPINCE_SITEMAP_V = $PHPINCE_SITEMAP_query->fetch()) {
