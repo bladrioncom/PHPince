@@ -87,7 +87,7 @@ function bl_addnavigation(){
 }
 function bl_runscript(value, url){
 	$('a#a'+value).replaceWith('<img id="a'+value+'" src="/phpince-panel/phpince-data/core/tems/phpince-dashboard/load.gif" />');
-	$('<iframe style="display:none;"  id="iframe_load'+ value +'" src="/phpince-panel/phpince-script/'+ url +'"></iframe>').appendTo(document.body);
+	$('<iframe style="display:none;"  id="iframe_load'+ value +'" src="/phpince-panel/phpince-script/'+ url +'/script.phpince.php"></iframe>').appendTo(document.body);
 	$('#iframe_load'+value).load(function() {
 		$("#iframe_load"+value).remove();
 		$('img#a'+value).replaceWith('<a id="a'+value+'" href="javascript: bl_runscript('+value+', \''+url+'\');" class="action add"></a>');

@@ -21,22 +21,9 @@
 | You should have received a copy of the GNU General Public License
 | along with this program.  If not, see <http://www.gnu.org/licenses/>.
 +----------------------------------------------------------------------*/
-require "../phpince-data/core/bladrion.unisc.php";
-if(!file_exists("../phpince-data/config/phpince.connect.php")) {
-	exit;
-}
-require "../phpince-data/config/phpince.connect.php";
-$PHPince_logon = bl_connect($PHPINCE_config, "mysql");
-$PHPINCE_config = false;
-if(!$PHPince_logon["active"]){
-	exit;
-}
-if(bl_logincheck($PHPince_logon)){
-	$PHPINCE_user = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_acc WHERE id = ? LIMIT 1", array($_COOKIE["phpinceacc"]), $PHPince_logon["login"])->fetch();
-	$PHPINCE_perms = bl_getperms($PHPINCE_user, $PHPince_logon);
-	if($PHPINCE_perms["script"]){
-		bl_query("TRUNCATE ".$PHPince_logon["prefix"]."phpince_log", array(), $PHPince_logon["login"]);
-		bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_1002} Clean_logs.php"), $PHPince_logon["login"]);
-	}
-}
+$PHPINCE_SCRIPT_INFO = array(
+	"name" => "Delete error log",
+	"info" => "This script deletes PHPince PHP error log",
+	"version" => "1.0"
+);
 ?>

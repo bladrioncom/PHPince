@@ -42,13 +42,21 @@ if($PHPINCE_perms["script"]){
 		$PHPINCE_filesystem_check = @opendir("phpince-panel/phpince-script") or die("Error");
 		$i = 1;
 		while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
-			if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && $PHPINCE_filesystem_checking != '.htaccess'){
+			if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && is_dir("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking) && file_exists("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking."/info.phpince.php") && file_exists("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking."/script.phpince.php")){
+				require "phpince-panel/phpince-script/".$PHPINCE_filesystem_checking."/info.phpince.php";
 				echo "<tr id=\"".$i."\">
-				  <td style=\"width:auto;\">".$PHPINCE_filesystem_checking."</td>
-				  <td style=\"width:auto;text-align:right;\">".bl_filesize(filesize("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking))."</td>
+				  <td style=\"width:auto;\"><p>&nbsp;</p><b>".$PHPINCE_SCRIPT_INFO["name"]." v".$PHPINCE_SCRIPT_INFO["version"]."</b>";
+				if(!empty($PHPINCE_SCRIPT_INFO["info"])){
+					echo "<br>- ".$PHPINCE_SCRIPT_INFO["info"];
+				} else {
+					echo "<br>...";
+				}
+				echo "<p>&nbsp;</p></td>
+				  <td style=\"width:auto;text-align:right;\">".bl_filesize((filesize("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking."/script.phpince.php")+filesize("phpince-panel/phpince-script/".$PHPINCE_filesystem_checking."/info.phpince.php")))."</td>
 				  <td style=\"width:20px;\"><a id=\"a".$i."\" class=\"action add\" href=\"javascript: bl_runscript(".$i.", '".$PHPINCE_filesystem_checking."');\"></a></td>
 			  </tr>";
 			  $i++;
+			  $PHPINCE_SCRIPT_INFO = false;
 			}
 		}
 	}
