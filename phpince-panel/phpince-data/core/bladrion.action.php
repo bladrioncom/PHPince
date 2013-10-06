@@ -198,6 +198,8 @@ if(bl_logincheck($PHPince_logon)){
 									bl_rmdir("update/".$entry."/install");
 									recurse_copy("update/".$entry, "../../../");
 									bl_rmdir("update/".$entry);
+									unlink("../../../LICENSE.txt");
+									unlink("../../../README.txt");
 									bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_28}"), $PHPince_logon["login"]);
 								}
 							}
