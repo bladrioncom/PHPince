@@ -610,79 +610,25 @@ function bl_filesize($bytes, $precision = 2){
         return $bytes . ' B';
     }
 }
+function bl_curl($url){
+	$ch = curl_init();
+    $user_agent = 'Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0';
+    curl_setopt ($ch,CURLOPT_URL, $url);
+    curl_setopt ($ch,CURLOPT_USERAGENT, $user_agent);
+    curl_setopt ($ch,CURLOPT_HEADER, 0);
+    curl_setopt ($ch,CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt ($ch,CURLOPT_CONNECTTIMEOUT,120);
+    curl_setopt ($ch,CURLOPT_TIMEOUT,120);
+    curl_setopt ($ch,CURLOPT_MAXREDIRS,10);
+    return curl_exec ($ch);
+}
 function bl_getpr(){
-	if(ini_get('allow_url_fopen')){
-		class bl_PR {
-			public function bl_get_google_pagerank($url) {
-				$query="http://toolbarqueries.google.com/tbr?client=navclient-auto&ch=".$this->bl_CheckHash($this->bl_HashURL($url)). "&features=Rank&q=info:".$url."&num=100&filter=0";
-				$data=file_get_contents($query);
-				$pos = strpos($data, "Rank_");
-				if($pos === false){} else{
-					$pagerank = substr($data, $pos + 9);
-					return $pagerank;
-				}
-			}
-			public function bl_StrToNum($Str, $Check, $Magic){
-				$Int32Unit = 4294967296; // 2^32
-				$length = strlen($Str);
-				for ($i = 0; $i < $length; $i++) {
-					$Check *= $Magic;
-					if ($Check >= $Int32Unit) {
-						$Check = ($Check - $Int32Unit * (int) ($Check / $Int32Unit));
-						$Check = ($Check < -2147483648) ? ($Check + $Int32Unit) : $Check;
-					}
-					$Check += ord($Str{$i});
-				}
-				return $Check;
-			}
-			public function bl_HashURL($String){
-				$Check1 = $this->bl_StrToNum($String, 0x1505, 0x21);
-				$Check2 = $this->bl_StrToNum($String, 0, 0x1003F);
-				$Check1 >>= 2;
-				$Check1 = (($Check1 >> 4) & 0x3FFFFC0 ) | ($Check1 & 0x3F);
-				$Check1 = (($Check1 >> 4) & 0x3FFC00 ) | ($Check1 & 0x3FF);
-				$Check1 = (($Check1 >> 4) & 0x3C000 ) | ($Check1 & 0x3FFF);
-				$T1 = (((($Check1 & 0x3C0) << 4) | ($Check1 & 0x3C)) <<2 ) | ($Check2 & 0xF0F );
-				$T2 = (((($Check1 & 0xFFFFC000) << 4) | ($Check1 & 0x3C00)) << 0xA) | ($Check2 & 0xF0F0000 );
-				return ($T1 | $T2);
-			}
-			public function bl_CheckHash($Hashnum){
-				$CheckByte = 0;
-				$Flag = 0;
-				$HashStr = sprintf('%u', $Hashnum) ;
-				$length = strlen($HashStr);
-				for ($i = $length - 1; $i >= 0; $i --) {
-					$Re = $HashStr{$i};
-					if (1 === ($Flag % 2)) {
-						$Re += $Re;
-						$Re = (int)($Re / 10) + ($Re % 10);
-					}
-					$CheckByte += $Re;
-					$Flag ++;
-				}
-				$CheckByte %= 10;
-				if (0 !== $CheckByte) {
-					$CheckByte = 10 - $CheckByte;
-					if (1 === ($Flag % 2) ) {
-						if (1 === ($CheckByte % 2)) {
-							$CheckByte += 9;
-						}
-						$CheckByte >>= 1;
-					}
-				}
-				return '7'.$CheckByte.$HashStr;
-			}
-		}
-		$url = "http://".preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
-		$pr = new bl_PR();
-		$rank = $pr->bl_get_google_pagerank($url);
-		if($rank){
-			return $rank."/ 10";
-		} else {
-			return "0 / 10";
-		}
+	$url = "http://api.phpince.com/google.pagerank.php?domain=".preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
+	$rank = bl_curl($url);
+	if($rank){
+		return $rank." / 10";
 	} else {
-		return "?? / 10";
+		return "0 / 10";
 	}
 }
 function bl_date(){
