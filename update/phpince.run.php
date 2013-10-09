@@ -1,6 +1,6 @@
 <?php
 /*---------------------------------------------------------------------+
-| PHPince Website
+| PHPince Website - Update script
 | Copyright (c) 2011 - 2013 Dominik Hulla
 | Web: http://phpince.com
 | Author: Dominik Hulla / dh@bladrion.com
@@ -21,13 +21,17 @@
 | You should have received a copy of the GNU General Public License
 | along with this program.  If not, see <http://www.gnu.org/licenses/>.
 +----------------------------------------------------------------------*/
-$PHPINCE_VERSION = array(
-	"CORE" => "Bladrion UniSC 2.1",
-	"SYSTEM" => "3.2.0",
-	"SUBVERSION" => "",
-	"EDITOR" => array(
-		"tinymce" => "TinyMCE 4.0.7",
-		"ckeditor" => "CKEditor 4.2.1"
-	)
-);
+if(empty($PHPINCE_VERSION["SYSTEM"])){ exit; }
+$PHPINCE_filesystem_check = @opendir("update/".$entry."/update/phpince.run") or die("[Error]: phpince.run not found");
+$PHPINCE_f_istalled = explode('.', $PHPINCE_VERSION["SYSTEM"]);
+while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
+	if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && $PHPINCE_filesystem_checking != '.htaccess'){
+		$PHPINCE_filesystem_checking_name = preg_replace('/\.php/', '', $PHPINCE_filesystem_checking);
+		$PHPINCE_filesystem_checking_name = preg_replace('/phpince.update-/', '', $PHPINCE_filesystem_checking_name);
+		$PHPINCE_f_actual = explode('.', $PHPINCE_filesystem_checking_name);
+		if($PHPINCE_f_actual[0].$PHPINCE_f_actual[1].".".$PHPINCE_f_actual[2]>$PHPINCE_f_istalled[0].$PHPINCE_f_istalled[1].".".$PHPINCE_f_istalled[2]){
+			require("update/".$entry."/update/phpince.run/".$PHPINCE_filesystem_checking);
+		}
+	}
+}
 ?>

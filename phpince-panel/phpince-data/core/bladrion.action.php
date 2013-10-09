@@ -31,6 +31,7 @@ $PHPINCE_config = false;
 if(!$PHPince_logon["active"]){
 	exit;
 }
+require "../config/phpince.version.php";
 require "phpince.lang.php";
 $PHPINCE_system = bl_system($PHPince_logon);
 if($PHPINCE_LANG[$PHPINCE_system["language"]]){
@@ -196,10 +197,12 @@ if(bl_logincheck($PHPince_logon)){
 							while ($entry = readdir($handle)) {
 								if($entry != '.' && $entry != '..' && $entry != '.htaccess' && preg_match("/bladrioncom/i", $entry)){
 									bl_rmdir("update/".$entry."/install");
+									include "update/".$entry."/update/phpince.run.php";
+									bl_rmdir("update/".$entry."/update");
+									unlink("update/".$entry."/LICENSE.txt");
+									unlink("update/".$entry."/README.txt");
 									recurse_copy("update/".$entry, "../../../");
 									bl_rmdir("update/".$entry);
-									unlink("../../../LICENSE.txt");
-									unlink("../../../README.txt");
 									bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_28}"), $PHPince_logon["login"]);
 								}
 							}
