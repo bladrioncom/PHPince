@@ -186,11 +186,32 @@ function bl_stopspam(){
 		return(true);
 	}
 }
-function bl_metaheader($array, $special_title = ""){
+function bl_metaheader($array, $PHPince_logon, $special_title = ""){
 	if($array["html"]=="HTML 5"){
 		echo "<meta charset=\"".$array["charset"]."\">\n";
 	} else {
 		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".$array["charset"]."\" />\n";
+	}
+	if(empty($_GET["phpince_temp"])){ $_GET["phpince_temp"] = ""; }
+	switch ($_GET["phpince_temp"]) {
+		case "page":
+			if((!empty($_GET["id"]))&&(is_numeric($_GET["id"]))){
+				$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_pages WHERE id = ?", array($_GET["id"]), $PHPince_logon["login"]);
+				if($query->rowCount()==1){
+					$fetch = $query->fetch();
+					$special_title = strip_tags($fetch["title"]);
+				}
+			}
+		break;
+		case "topic":
+			if((!empty($_GET["id"]))&&(is_numeric($_GET["id"]))){
+				$query = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_news WHERE id = ?", array($_GET["id"]), $PHPince_logon["login"]);
+				if($query->rowCount()==1){
+					$fetch = $query->fetch();
+					$special_title = strip_tags($fetch["title"]);
+				}
+			}
+		break;
 	}
 	if(!empty($special_title)){
 		$special_title = " &#8250; ".$special_title;

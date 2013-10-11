@@ -70,7 +70,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 		echo "<!DOCTYPE HTML>
 <html>
 <head>";
-		bl_metaheader($PHPINCE_system, $PHPINCE_LANG[0]);
+		bl_metaheader($PHPINCE_system, $PHPince_logon, $PHPINCE_LANG[0]);
 		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/temp.css\">
 <link rel=\"stylesheet\" type=\"text/css\" href=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/font.css\">
 <link rel=\"shortcut icon\" href=\"/phpince-panel/phpince-data/core/tems/favicon.ico\">
@@ -354,7 +354,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				}
 				echo "<!DOCTYPE HTML><html>
 				<head>";
-				bl_metaheader($PHPINCE_system, $PHPINCE_LANG[108]);
+				bl_metaheader($PHPINCE_system, $PHPince_logon, $PHPINCE_LANG[108]);
 				echo "<link href=\"/phpince-panel/phpince-data/core/tems/phpince-login/login_temp.css\" rel=\"stylesheet\" type=\"text/css\">
 				<link rel=\"shortcut icon\" href=\"/phpince-panel/phpince-data/core/tems/favicon.ico\">";
 				echo "</head><body>";
@@ -421,7 +421,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				}
 				echo "<!DOCTYPE HTML><html>
 				<head>";
-				bl_metaheader($PHPINCE_system, $PHPINCE_LANG[108]);
+				bl_metaheader($PHPINCE_system, $PHPince_logon, $PHPINCE_LANG[108]);
 				echo "<link href=\"/phpince-panel/phpince-data/core/tems/phpince-login/login_temp.css\" rel=\"stylesheet\" type=\"text/css\">
 				<link rel=\"shortcut icon\" href=\"/phpince-panel/phpince-data/core/tems/favicon.ico\">";
 				echo "</head><body>";
@@ -504,7 +504,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				}
 				echo "<!DOCTYPE HTML><html>
 				<head>";
-				bl_metaheader($PHPINCE_system, $PHPINCE_LANG[109]);
+				bl_metaheader($PHPINCE_system, $PHPince_logon, $PHPINCE_LANG[109]);
 				echo "<link href=\"/phpince-panel/phpince-data/core/tems/phpince-login/login_temp.css\" rel=\"stylesheet\" type=\"text/css\">
 				<link rel=\"shortcut icon\" href=\"/phpince-panel/phpince-data/core/tems/favicon.ico\">";
 				echo "</head><body>";
@@ -578,7 +578,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 				}
 				echo "<!DOCTYPE HTML><html>
 				<head>";
-				bl_metaheader($PHPINCE_system, $PHPINCE_LANG[100]);
+				bl_metaheader($PHPINCE_system, $PHPince_logon, $PHPINCE_LANG[100]);
 				echo "<link href=\"/phpince-panel/phpince-data/core/tems/phpince-login/login_temp.css\" rel=\"stylesheet\" type=\"text/css\">
 				<link rel=\"shortcut icon\" href=\"/phpince-panel/phpince-data/core/tems/favicon.ico\">";
 				echo "</head><body>";
