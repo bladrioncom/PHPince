@@ -50,6 +50,7 @@ if($_GET["phpince_secure"]==sha1($PHPINCE_secured["hash"])){
 	<version_checker>".$PHPINCE_system["version_checker"]."</version_checker>
 	<inteldoc>".$PHPINCE_system["inteldoc"]."</inteldoc>
 	<stopspam>".$PHPINCE_system["stopspam"]."</stopspam>
+	<cloudflare_malware>".$PHPINCE_system["cloudflare_malware"]."</cloudflare_malware>
 	<errorlog>".$PHPINCE_system["error_log"]."</errorlog>
 </phpince>";
 }

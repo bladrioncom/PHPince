@@ -146,6 +146,7 @@ $PHPINCE_LANG = array(
 		525 => 'bad login',
 		526 => 'minutes',
 		527 => 'Lock web-site for the public',
+		528 => 'Enable supplement CloudFlare <a target="_blank" href="http://www.fbi.gov/news/stories/2011/november/malware_110911">Anti-DNS Malware</a>',
 	//Webadmin: Change password
 		600 => 'Change password',
 		601 => 'Old password',
@@ -464,6 +465,7 @@ $PHPINCE_LANG = array(
 		525 => 'zlé prihlásenie',
 		526 => 'minút',
 		527 => 'Uzamknúť web-stránku pre verejnosť',
+		528 => 'Povoliť doplnok CloudFlare <a target="_blank" href="http://www.fbi.gov/news/stories/2011/november/malware_110911">Anti-DNS Malware</a>',
 	//Webadmin: Change password
 		600 => 'Zmena hesla',
 		601 => 'Staré heslo',

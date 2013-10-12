@@ -75,6 +75,7 @@ function bl_system($connect){
 		"version_checker" => $fetch["set_version"],
 		"inteldoc" => $fetch["set_inteldoc"],
 		"stopspam" => $fetch["set_stopspam"],
+		"cloudflare_malware" => $fetch["set_dnscloudflare"],
 		"ban" => array(
 			"count" => $fetch["set_ban"],
 			"time" => $fetch["set_ban_time"],
@@ -224,6 +225,9 @@ function bl_metaheader($array, $PHPince_logon, $special_title = ""){
 	}
 	if((empty($_GET["phpince-panel"]))&&($array["inteldoc"]==1)){
 		echo "<script type=\"text/javascript\">\n (function() {\n var bl_ana = document.createElement('script'); bl_ana.type = 'text/javascript'; bl_ana.async = true;\n bl_ana.src = '/phpince-panel/phpince-data/core/bladrion.dog.js';\n var bl_anas = document.getElementsByTagName('script')[0]; bl_anas.parentNode.insertBefore(bl_ana, bl_anas);\n })();\n</script>\n";
+	}
+	if($array["cloudflare_malware"]==1){
+		echo "<script type=\"text/javascript\" src=\"//ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js\" async></script>\n<script type=\"text/javascript\">\n window.CloudFlare = window.CloudFlare || [];\n CloudFlare.push(function(require, define) {\n CloudFlare.push({ paths: { \"dnschanger_detector\": \"//ajax.cloudflare.com/cdn-cgi/nexp/apps/\" }});\n define(\"dnschanger_detector/config\", function() { return { \"fix_url\" : \"http://www.opendns.com/dns-changer\" }});\n require([\"dnschanger_detector\"]);\n });\n </script>\n";
 	}
 }
 function bl_temp_style($style ,$PHPince_logon){
