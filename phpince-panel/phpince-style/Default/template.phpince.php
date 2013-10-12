@@ -2,7 +2,7 @@
 <html>
 <head>
 <?php
-	bl_metaheader($PHPINCE_system);
+	bl_metaheader($PHPINCE_system, $PHPince_logon);
 ?>
 </head>
 <body>
