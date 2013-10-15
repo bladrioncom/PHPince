@@ -56,6 +56,7 @@ $PHPINCE_LANG = array(
 		28 => 'Updated system',
 		29 => 'en',
 		30 => 'Are you sure ?',
+		31 => 'Style editor',
 	//Login system
 		100 => 'Login',
 		101 => 'Please fill account and password.',
@@ -301,6 +302,10 @@ $PHPINCE_LANG = array(
 		1815 => 'Websites that link to my website',
 		1816 => 'Statistics robots',
 		1817 => 'Today',
+	//Webadmin: Editor
+		1900 => 'Style editor',
+		1901 => 'Go back',
+		1902 => 'File edited successfully',
 	//Ranks
 		400 => 'Level 0',
 		401 => 'Level 1',
@@ -333,6 +338,7 @@ $PHPINCE_LANG = array(
 		2018 => 'Access to "Modules"',
 		2019 => 'Access to "Layout"',
 		2020 => 'Access to "Statistics"',
+		2021 => 'Access to "Style editor"',
 	//Formatings
 		3001 => 'Custom style for articles',
 		3002 => 'Custom style for active article (domain.tld/topic/id)',
@@ -375,6 +381,7 @@ $PHPINCE_LANG = array(
 		28 => 'Aktualizoval systém',
 		29 => 'sk',
 		30 => 'Ste si istý ?',
+		31 => 'Editor štýlov',
 	//Login system
 		100 => 'Prihlásenie',
 		101 => 'Prosím, vyplňte účet a heslo.',
@@ -620,6 +627,10 @@ $PHPINCE_LANG = array(
 		1815 => 'Stránky odkazujúce na môj web',
 		1816 => 'Štatistika robotov',
 		1817 => 'Dnes',
+	//Webadmin: Editor
+		1900 => 'Editor štýlov',
+		1901 => 'Vrátiť sa späť',
+		1902 => 'Súbor úspešne upravený',
 	//Ranks
 		400 => 'Úroveň 0',
 		401 => 'Úroveň 1',
@@ -652,6 +663,7 @@ $PHPINCE_LANG = array(
 		2018 => 'Prístup k položke "Moduly"',
 		2019 => 'Prístup k položke "Rozloženie"',
 		2020 => 'Prístup k položke "Štatistiky"',
+		2021 => 'Prístup k položke "Editor štýlov"',
 	//Formatings
 		3001 => 'Zobrazenie článkov',
 		3002 => 'Zobrazenie jedného článku',

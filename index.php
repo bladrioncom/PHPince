@@ -126,6 +126,9 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 					if($PHPINCE_perms["formating"]){
                     	echo "<li><a href=\"/panel/formating\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/style.png\">".$PHPINCE_LANG[20]."</a></li>";
 					}
+					if($PHPINCE_perms["styleeditor"]){
+                    	echo "<li><a href=\"/panel/styleeditor\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/style_editor.png\">".$PHPINCE_LANG[31]."</a></li>";
+					}
 					if($PHPINCE_perms["ban"]){
                     	echo "<li><a href=\"/panel/ban\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/ban.png\">".$PHPINCE_LANG[21]."</a></li>";
 					}
@@ -317,6 +320,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 			case "apps": require bl_getsystemplugin("apps"); break;
 			case "formating": require bl_getsystemplugin("formating"); break;
 			case "stats": require bl_getsystemplugin("stats"); break;
+			case "styleeditor": require bl_getsystemplugin("styleeditor"); break;
 			case "logout":
 				bl_query("DELETE FROM ".$PHPince_logon["prefix"]."phpince_hash WHERE hash = ?", array($_COOKIE["phpincehash"]), $PHPince_logon["login"]);
 				bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($_COOKIE["phpinceacc"], $_SERVER['REMOTE_ADDR'], bl_date(), "{LOGIN}", "{TRANSLATE_133}"), $PHPince_logon["login"]);
