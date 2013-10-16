@@ -195,28 +195,6 @@ if($PHPINCE_perms["systeminfo"]){
 		}
 	}
 	echo "</select></div>";
-	if(!empty($_POST["set_version"])){ $PHPINCE_system["version_checker"] = $_POST["set_version"]; }
-	echo "<div style=\"float:left; width:48%\"><h4>".$PHPINCE_LANG[509]."</h4><select name=\"set_version\">";
-	$PHPINCE_VER = array(0=>$PHPINCE_LANG[12], 1=>$PHPINCE_LANG[11]);
-	for ($i = 0; $i < count($PHPINCE_VER); $i++) {
-		if($PHPINCE_system["version_checker"]==$i){
-			echo "<option value=\"".$i."\" selected>".$PHPINCE_VER[$i]."</option>";
-		} else {
-			echo "<option value=\"".$i."\">".$PHPINCE_VER[$i]."</option>";
-		}
-	}
-	echo "</select></div>";
-	if(!empty($_POST["set_dnscloudflare"])){ $PHPINCE_system["cloudflare_malware"] = $_POST["set_dnscloudflare"]; }
-	echo "<div style=\"float:left; margin-left:4%; width:48%\"><h4>".$PHPINCE_LANG[528]."</h4><select name=\"set_dnscloudflare\">";
-	$PHPINCE_cloudflare_malware = array(0=>$PHPINCE_LANG[12], 1=>$PHPINCE_LANG[11]);
-	for ($i = 0; $i < count($PHPINCE_cloudflare_malware); $i++) {
-		if($PHPINCE_system["cloudflare_malware"]==$i){
-			echo "<option value=\"".$i."\" selected>".$PHPINCE_cloudflare_malware[$i]."</option>";
-		} else {
-			echo "<option value=\"".$i."\">".$PHPINCE_cloudflare_malware[$i]."</option>";
-		}
-	}
-	echo "</select></div>";
 	if(!empty($_POST["set_ban"])){ $PHPINCE_system["ban"]["count"] = $_POST["set_ban"]; }
 	echo "<div style=\"float:left; width:48%\"><h4>".$PHPINCE_LANG[523]."</h4><select name=\"set_ban\">";
 	for ($i = 1; $i <= 15; $i++) {
@@ -239,6 +217,17 @@ if($PHPINCE_perms["systeminfo"]){
 		}
 	}
 	echo "</select></div>";
+	if(!empty($_POST["set_dnscloudflare"])){ $PHPINCE_system["cloudflare_malware"] = $_POST["set_dnscloudflare"]; }
+	echo "<h4>".$PHPINCE_LANG[528]."</h4><select name=\"set_dnscloudflare\">";
+	$PHPINCE_cloudflare_malware = array(0=>$PHPINCE_LANG[12], 1=>$PHPINCE_LANG[11]);
+	for ($i = 0; $i < count($PHPINCE_cloudflare_malware); $i++) {
+		if($PHPINCE_system["cloudflare_malware"]==$i){
+			echo "<option value=\"".$i."\" selected>".$PHPINCE_cloudflare_malware[$i]."</option>";
+		} else {
+			echo "<option value=\"".$i."\">".$PHPINCE_cloudflare_malware[$i]."</option>";
+		}
+	}
+	echo "</select>";
 	echo "</div>";
 	echo "</div><p>&nbsp;</p>";
 	echo "<div id=\"title\">
