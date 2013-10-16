@@ -27,8 +27,16 @@ if($PHPINCE_perms["styleeditor"]){
 		default:
 			bl_redirect("/panel/".$_GET["func"]);
 	}
-	$PHPINCE_filename = $_GET["file"];
-	$PHPINCE_opendir = $_GET["open"];
+	if(!empty($_GET["file"])){
+		$PHPINCE_filename = $_GET["file"];
+	} else {
+		$PHPINCE_filename = "";
+	}
+	if(!empty($_GET["open"])){
+		$PHPINCE_opendir = $_GET["open"];
+	} else {
+		$PHPINCE_opendir = "";
+	}
 	if(empty($PHPINCE_opendir)){
 		$PHPINCE_directory = "phpince-panel/phpince-style";
 	} else {
