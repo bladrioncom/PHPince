@@ -26,7 +26,7 @@ $PHPINCE_VERSION = array(
 	"SYSTEM" => "3.2.2",
 	"SUBVERSION" => "",
 	"EDITOR" => array(
-		"tinymce" => "TinyMCE 4.0.7",
+		"tinymce" => "TinyMCE 4.0.10",
 		"ckeditor" => "CKEditor 4.2.2"
 	)
 );
