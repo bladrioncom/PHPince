@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
 		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
 		{ name: 'others', items: [ '-' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace'] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Mathjax', 'Replace'] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] }
 	]
 	config.allowedContent = true;

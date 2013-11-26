@@ -94,11 +94,14 @@ var CKBUILDER_CONFIG = {
 		'richcombo' : 1,
 		'listblock' : 1,
 		'indent' : 1,
-		'menubutton' : 1
+		'menubutton' : 1,
+		'lineutils' : 1,
+		'widget' : 1,
+		'mathjax' : 1
 	},
 	languages : {
 		'cs' : 1,
 		'en' : 1,
-		'sk' : 1,
+		'sk' : 1
 	}
 };
