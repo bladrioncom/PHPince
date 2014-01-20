@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------------------------------------------+
 | PHPince Website
-| Copyright (c) 2011 - 2013 Dominik Hulla
+| Copyright (c) 2011 - 2014 Dominik Hulla
 | Web: http://phpince.com
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
@@ -268,7 +268,7 @@ switch ($title_id){
 						fwrite($CREATE_CONFIG, '<?php
 /*---------------------------------------------------------------------+
 | PHPince Website
-| Copyright (c) 2011 - 2013 Dominik Hulla
+| Copyright (c) 2011 - 2014 Dominik Hulla
 | Web: http://phpince.com
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
@@ -303,7 +303,7 @@ $PHPINCE_config = array(
 						fwrite($CREATE_SECURE, '<?php
 /*---------------------------------------------------------------------+
 | PHPince Website
-| Copyright (c) 2011 - 2013 Dominik Hulla
+| Copyright (c) 2011 - 2014 Dominik Hulla
 | Web: http://phpince.com
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
@@ -406,7 +406,7 @@ $PHPINCE_secured = array(
 	break;
 }
 echo "</section>";
-echo "<footer>Powered by <a href=\"http://phpince.com\">PHPince Website</a> | Copyright &copy; 2011 - 2013 Dominik Hulla<br>Released as free software without warranties under <a href=\"http://phpince.com/page_19\">GNU GPL v3</a> (or later).<p>&nbsp;</p></footer>
+echo "<footer>Powered by <a href=\"http://phpince.com\">PHPince Website</a> | Copyright &copy; 2011 - 2014 Dominik Hulla<br>Released as free software without warranties under <a href=\"http://phpince.com/page_19\">GNU GPL v3</a> (or later).<p>&nbsp;</p></footer>
 </div>
 </body>
 </html>";

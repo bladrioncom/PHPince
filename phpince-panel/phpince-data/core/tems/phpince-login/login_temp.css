@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
-| Copyright (c) 2011 - 2013 Dominik Hulla
+| Copyright (c) 2011 - 2014 Dominik Hulla
 | Web: http://phpince.com
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
