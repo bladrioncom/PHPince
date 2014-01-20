@@ -215,9 +215,9 @@ function bl_metaheader($array, $PHPince_logon, $special_title = ""){
 		break;
 	}
 	if(!empty($special_title)){
-		$special_title = " &#8250; ".$special_title;
+		$special_title = $special_title." &#8250; ";
 	}
-	echo "<title>".$array["title"].$special_title."</title>\n<meta name=\"description\" content=\"".$array["desc"]."\" />\n<meta name=\"keywords\" content=\"".$array["key"]."\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"".$array["title"]." - RSS\" href=\"http://".$_SERVER['SERVER_NAME']."/rss.xml\" />\n";
+	echo "<title>".$special_title.$array["title"]."</title>\n<meta name=\"description\" content=\"".$array["desc"]."\" />\n<meta name=\"keywords\" content=\"".$array["key"]."\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"".$array["title"]." - RSS\" href=\"http://".$_SERVER['SERVER_NAME']."/rss.xml\" />\n";
 	if($array["bot"]==0){
 		echo "<meta name=\"robots\" content=\"noindex, nofollow\" />\n";
 	} else {
