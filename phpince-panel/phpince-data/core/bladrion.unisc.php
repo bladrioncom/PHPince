@@ -76,6 +76,7 @@ function bl_system($connect){
 		"inteldoc" => $fetch["set_inteldoc"],
 		"stopspam" => $fetch["set_stopspam"],
 		"cloudflare_malware" => $fetch["set_dnscloudflare"],
+		"login_redirect" => $fetch["login_redirect"],
 		"ban" => array(
 			"count" => $fetch["set_ban"],
 			"time" => $fetch["set_ban_time"],

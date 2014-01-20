@@ -607,7 +607,11 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 									if($PHPINCE_LOGIN_ban_login->rowCount()==1){
 										bl_query("DELETE FROM ".$PHPince_logon["prefix"]."phpince_ban_login WHERE ip = ?", array(bl_hash($_SERVER['REMOTE_ADDR'])), $PHPince_logon["login"]);
 									}
-									bl_reload();
+									if(empty($PHPINCE_system["login_redirect"])){
+										bl_reload();
+									} else {
+										bl_redirect($PHPINCE_system["login_redirect"]);
+									}
 								} else {
 									echo "<div id=\"phpince_error\">".$PHPINCE_LANG[103]."</div>";
 									$PHPINCE_LOGIN_ban_login = bl_query("SELECT * FROM ".$PHPince_logon["prefix"]."phpince_ban_login WHERE ip = ?", array(bl_hash($_SERVER['REMOTE_ADDR'])), $PHPince_logon["login"]);

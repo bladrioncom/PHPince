@@ -148,6 +148,8 @@ $PHPINCE_LANG = array(
 		526 => 'minutes',
 		527 => 'Lock web-site for the public',
 		528 => 'Enable supplement CloudFlare <a target="_blank" href="http://www.fbi.gov/news/stories/2011/november/malware_110911">Anti-DNS Malware</a>',
+		529 => 'After login redirect to the URL',
+		530 => 'If you do not redirect, leave blank',
 	//Webadmin: Change password
 		600 => 'Change password',
 		601 => 'Old password',
@@ -473,6 +475,8 @@ $PHPINCE_LANG = array(
 		526 => 'minút',
 		527 => 'Uzamknúť web-stránku pre verejnosť',
 		528 => 'Povoliť doplnok CloudFlare <a target="_blank" href="http://www.fbi.gov/news/stories/2011/november/malware_110911">Anti-DNS Malware</a>',
+		529 => 'Po prihlásení presmerovať na URL',
+		530 => 'Ak nechcete presmerovať, nechajte prázdne',
 	//Webadmin: Change password
 		600 => 'Zmena hesla',
 		601 => 'Staré heslo',
@@ -798,6 +802,8 @@ $PHPINCE_LANG = array(
 		526 => 'minut',
 		527 => 'Uzamknout web-stránku pro veřejnost',
 		528 => 'Povolit doplněk CloudFlare <a target="_blank" href="http://www.fbi.gov/news/stories/2011/november/malware_110911">Anti-DNS Malware</a>',
+		529 => 'Po přihlášení přesměrovat na URL',
+		530 => 'Pokud nechcete přesměrovat, nechte prázdné',
 	//Webadmin: Change password
 		600 => 'Změna hesla',
 		601 => 'Staré heslo',

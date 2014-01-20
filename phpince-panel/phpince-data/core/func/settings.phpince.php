@@ -62,7 +62,7 @@ if($PHPINCE_perms["systeminfo"]){
 					}
 				}
 			}
-			bl_query("UPDATE ".$PHPince_logon["prefix"]."phpince_system SET site_name = ?, site_desc = ?, site_key = ?, site_charset = ?, site_html = ?, set_style = ?, set_lp = ?, set_bot = ?, set_editor = ?, set_time = ?, set_reg = ?, set_version = ?, set_inteldoc = ?, set_stopspam = ?, set_ban = ?, set_ban_time = ?, set_construction = ?, set_dnscloudflare = ? WHERE data = ?", array($_POST["site_name"],$_POST["site_desc"], $_POST["site_key"], $_POST["site_charset"], $_POST["site_html"], $_POST["set_style"], $_POST["set_lp"], $_POST["set_bot"], $_POST["set_editor"], $_POST["set_time"], $_POST["set_reg"], $_POST["set_version"], $_POST["set_inteldoc"], $_POST["set_stopspam"], $_POST["set_ban"], $_POST["set_ban_time"], $_POST["set_construction"], $_POST["set_dnscloudflare"], 1), $PHPince_logon["login"]);
+			bl_query("UPDATE ".$PHPince_logon["prefix"]."phpince_system SET site_name = ?, site_desc = ?, site_key = ?, site_charset = ?, site_html = ?, set_style = ?, set_lp = ?, set_bot = ?, set_editor = ?, set_time = ?, set_reg = ?, set_version = ?, set_inteldoc = ?, set_stopspam = ?, set_ban = ?, set_ban_time = ?, set_construction = ?, set_dnscloudflare = ?, login_redirect = ? WHERE data = ?", array($_POST["site_name"],$_POST["site_desc"], $_POST["site_key"], $_POST["site_charset"], $_POST["site_html"], $_POST["set_style"], $_POST["set_lp"], $_POST["set_bot"], $_POST["set_editor"], $_POST["set_time"], $_POST["set_reg"], $_POST["set_version"], $_POST["set_inteldoc"], $_POST["set_stopspam"], $_POST["set_ban"], $_POST["set_ban_time"], $_POST["set_construction"], $_POST["set_dnscloudflare"], $_POST["login_redirect"], 1), $PHPince_logon["login"]);
 			bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_521}"), $PHPince_logon["login"]);
 			echo "<div class=\"warn ok\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_ok.png\">".$PHPINCE_LANG[520]."</div>";
 		}
@@ -122,6 +122,8 @@ if($PHPINCE_perms["systeminfo"]){
 		}
 	}
 	echo "</select>";
+	if(!empty($_POST["login_redirect"])){ $PHPINCE_system["login_redirect"] = $_POST["login_redirect"]; }
+	echo "<h4>".$PHPINCE_LANG[529]." | <span>".$PHPINCE_LANG[530]."</span></h4><input name=\"login_redirect\" type=\"text\" value=\"".$PHPINCE_system["login_redirect"]."\">";
 	if(!empty($_POST["set_time"])){ $PHPINCE_system["timeformat"] = $_POST["set_time"]; }
 	echo "<h4>".$PHPINCE_LANG[506]."</h4><select name=\"set_time\">";
 	$PHPINCE_TIME = array("12", "24");
