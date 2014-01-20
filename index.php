@@ -336,7 +336,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
     </div>
     <footer>
     	<div id=\"box\">
-        	<div class=\"copy\">Powered by <a href=\"http://phpince.com\">PHPince Website</a> ".$PHPINCE_system["system"]["SYSTEM"].", copyright &copy; 2011 - 2013 by <a href=\"http://bladrion.com\">Dominik Hulla</a>.</div>
+        	<div class=\"copy\">Powered by <a href=\"http://phpince.com\">PHPince Website</a> ".$PHPINCE_system["system"]["SYSTEM"].", copyright &copy; 2011 - 2014 by <a href=\"http://bladrion.com\">Dominik Hulla</a>.</div>
             <div class=\"lic\">Released as free software without warranties under <a href=\"http://phpince.com/page/19\">GNU GPL v3</a>(or later).</div>
         </div>
     </footer>
