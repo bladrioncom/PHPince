@@ -22,7 +22,7 @@
 | along with this program.  If not, see <http://www.gnu.org/licenses/>.
 +----------------------------------------------------------------------*/
 if(empty($PHPINCE_VERSION["SYSTEM"])){ exit; }
-$PHPINCE_filesystem_check = @opendir("update/".$entry."/update/phpince.run") or die("[Error]: phpince.run not found");
+$PHPINCE_filesystem_check = @opendir("update/PHPince-master/update/phpince.run") or die("[Error]: phpince.run not found");
 $PHPINCE_f_istalled = explode('.', $PHPINCE_VERSION["SYSTEM"]);
 while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
 	if($PHPINCE_filesystem_checking != '.' && $PHPINCE_filesystem_checking != '..' && $PHPINCE_filesystem_checking != '.htaccess'){
@@ -30,7 +30,7 @@ while ($PHPINCE_filesystem_checking = readdir($PHPINCE_filesystem_check)) {
 		$PHPINCE_filesystem_checking_name = preg_replace('/phpince.update-/', '', $PHPINCE_filesystem_checking_name);
 		$PHPINCE_f_actual = explode('.', $PHPINCE_filesystem_checking_name);
 		if($PHPINCE_f_actual[0].$PHPINCE_f_actual[1].".".$PHPINCE_f_actual[2]>$PHPINCE_f_istalled[0].$PHPINCE_f_istalled[1].".".$PHPINCE_f_istalled[2]){
-			require("update/".$entry."/update/phpince.run/".$PHPINCE_filesystem_checking);
+			require("update/PHPince-master/update/phpince.run/".$PHPINCE_filesystem_checking);
 		}
 	}
 }

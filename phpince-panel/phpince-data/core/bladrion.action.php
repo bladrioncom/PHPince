@@ -184,7 +184,7 @@ if(bl_logincheck($PHPince_logon)){
 					echo "[ERROR]: Download is no available, \"allow_url_fopen\" is disabled in php.ini";
 					exit;
 				} 
-				bl_download("https://bitbucket.org/bladrioncom/phpince/get/master.zip", "bladrionupdate_file.zip");
+				bl_download("https://github.com/bladrioncom/PHPince/archive/master.zip", "bladrionupdate_file.zip");
 				if (file_exists("bladrionupdate_file.zip")) {
 					$file = 'bladrionupdate_file.zip';
 					$zipArchive = new ZipArchive();
@@ -193,21 +193,12 @@ if(bl_logincheck($PHPince_logon)){
 						$zipArchive ->extractTo("update");
 						$zipArchive ->close();
 						unlink($file);
-						if ($handle = opendir('update')) {
-							while ($entry = readdir($handle)) {
-								if($entry != '.' && $entry != '..' && $entry != '.htaccess' && preg_match("/bladrioncom/i", $entry)){
-									bl_rmdir("update/".$entry."/install");
-									include "update/".$entry."/update/phpince.run.php";
-									bl_rmdir("update/".$entry."/update");
-									unlink("update/".$entry."/LICENSE.txt");
-									unlink("update/".$entry."/README.txt");
-									recurse_copy("update/".$entry, "../../../");
-									bl_rmdir("update/".$entry);
-									bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_28}"), $PHPince_logon["login"]);
-								}
-							}
-							closedir($handle);
-						}
+						bl_rmdir("update/PHPince-master/install");
+						include "update/PHPince-master/update/phpince.run.php";
+						bl_rmdir("update/PHPince-master/update/");
+						recurse_copy("update/PHPince-master/", "../../../");
+						bl_rmdir("update/PHPince-master/");
+						bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_28}"), $PHPince_logon["login"]);
 					} else {
 						echo "[ERROR]: Zip open failed";
 					}
