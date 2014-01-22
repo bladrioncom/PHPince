@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -36,7 +36,7 @@ if(bl_logincheck($PHPince_logon)){
 	$PHPINCE_perms = bl_getperms($PHPINCE_user, $PHPince_logon);
 	if($PHPINCE_perms["script"]){
 		require "../../phpince-data/config/phpince.secured.php";
-		echo "<iframe style=\"display:none;\" src=\"http://phpince.com/indexing/phpince.index.php?loader=okloader&hash=".sha1($PHPINCE_secured["hash"])."\"></iframe>";
+		echo "<iframe style=\"display:none;\" src=\"http://phpince.org/indexing/phpince.index.php?loader=okloader&hash=".sha1($PHPINCE_secured["hash"])."\"></iframe>";
 	}
 }
 ?>

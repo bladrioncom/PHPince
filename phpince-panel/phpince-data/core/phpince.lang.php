@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -284,7 +284,7 @@ $PHPINCE_LANG = array(
 		1700 => 'Layout',
 		1701 => 'Layout modified',
 		1702 => 'Edited layout',
-		1703 => 'When editing above mentioned code you need knowledge PHPince tags. For more info see the <a target="_blank" href="http://phpince.com/page/21">tutorial</a>.',
+		1703 => 'When editing above mentioned code you need knowledge PHPince tags. For more info see the <a target="_blank" href="http://phpince.org/page/21">tutorial</a>.',
 	//Webadmin: Stats
 		1800 => 'Statistics',
 		1801 => 'Visit rate this day',
@@ -611,7 +611,7 @@ $PHPINCE_LANG = array(
 		1700 => 'Rozloženie',
 		1701 => 'Rozloženie upravené',
 		1702 => 'Upravil rozloženie',
-		1703 => 'Pri úprave hore uvedeného kódu potrebujete znalosť PHPince značiek. Pre viac info si prezrite <a target="_blank" href="http://phpince.com/page/21">tutorial</a>.',
+		1703 => 'Pri úprave hore uvedeného kódu potrebujete znalosť PHPince značiek. Pre viac info si prezrite <a target="_blank" href="http://phpince.org/page/21">tutorial</a>.',
 	//Webadmin: Stats
 		1800 => 'Štatistiky',
 		1801 => 'Návštevnosť tento deň',
@@ -938,7 +938,7 @@ $PHPINCE_LANG = array(
 		1700 => 'Rozložení',
 		1701 => 'Rozložení upravené',
 		1702 => 'Upravil rozložení',
-		1703 => 'Při úpravě výše uvedeného kódu potřebujete znalost PHPince značek. Pro více info si prohlédněte <a target="_blank" href="http://phpince.com/page/21">návod</a>.',
+		1703 => 'Při úpravě výše uvedeného kódu potřebujete znalost PHPince značek. Pro více info si prohlédněte <a target="_blank" href="http://phpince.org/page/21">návod</a>.',
 	//Webadmin: Stats
 		1800 => 'Statistiky',
 		1801 => 'Návštěvnost tento den',

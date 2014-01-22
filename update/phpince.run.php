@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website - Update script
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+

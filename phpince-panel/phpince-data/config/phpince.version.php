@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -23,7 +23,7 @@
 +----------------------------------------------------------------------*/
 $PHPINCE_VERSION = array(
 	"CORE" => "Bladrion UniSC 2.1",
-	"SYSTEM" => "3.2.6",
+	"SYSTEM" => "3.2.7",
 	"SUBVERSION" => "",
 	"EDITOR" => array(
 		"tinymce" => "TinyMCE 4.0.12",

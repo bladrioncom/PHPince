@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -649,7 +649,7 @@ function bl_curl($url){
     return curl_exec ($ch);
 }
 function bl_getpr(){
-	$url = "http://api.phpince.com/google.pagerank.php?domain=".preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
+	$url = "http://api.phpince.org/google.pagerank.php?domain=".preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
 	$rank = bl_curl($url);
 	if($rank){
 		return $rank." / 10";
@@ -795,7 +795,7 @@ if (strlen($file) > 20){
 }
 function bl_sysversion($PHPINCE_system, $let = false){
 	if(ini_get('allow_url_fopen')){
-		$open = fopen("http://phpince.com/server/admin/phpince_version.txt", "rb");
+		$open = fopen("http://phpince.org/server/admin/phpince_version.txt", "rb");
 		$get = stream_get_contents($open);
 		if($let==true){
 			return($get);

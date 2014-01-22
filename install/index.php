@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -34,7 +34,7 @@ echo "<!DOCTYPE HTML>
 <title>PHPince Website - Install</title>
 <meta name=\"robots\" content=\"noindex, nofollow\">
 <link rel=\"stylesheet\" type=\"text/css\" href=\"/phpince-panel/phpince-data/core/tems/phpince-install/template.css\">
-<link rel=\"shortcut icon\" href=\"http://phpince.com/favicon.ico\">
+<link rel=\"shortcut icon\" href=\"http://phpince.org/favicon.ico\">
 </head>
 <body>
 <div id=\"wrapper\">
@@ -239,7 +239,7 @@ switch ($title_id){
                 </tr>
             </table>';
 			if($INSLALL_CHECK<5){
-				echo '<h2 style="color:#9f1212;">Your webhosting unsupported PHPince Website :-( , check out our <a target="_blank" href="http://phpince.com/page_18">tested hosting</a> or report this installation on <a target="_blank" href="https://bitbucket.org/bladrioncom/phpince/issues">Git</a> or contact us on operator@phpince.com :-)</h2>';
+				echo '<h2 style="color:#9f1212;">Your webhosting unsupported PHPince Website :-( , check out our <a target="_blank" href="http://phpince.org/page_18">tested hosting</a> or report this installation on <a target="_blank" href="https://bitbucket.org/bladrioncom/phpince/issues">Git</a> or contact us on operator@phpince.org :-)</h2>';
 			}
             echo '<input type="submit" value="Next">';
 			if($INSLALL_CHECK==5){
@@ -269,7 +269,7 @@ switch ($title_id){
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -304,7 +304,7 @@ $PHPINCE_config = array(
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -398,7 +398,7 @@ $PHPINCE_secured = array(
 	case 4:
 		echo "<h2>Installation was successful, please delete the installation folder.</h2>";
 		require '../phpince-panel/phpince-data/config/phpince.secured.php';
-		echo "<iframe style=\"display:none;\" src=\"http://phpince.com/indexing/phpince.index.php?loader=okloader&hash=".sha1($PHPINCE_secured["hash"])."\"></iframe>";
+		echo "<iframe style=\"display:none;\" src=\"http://phpince.org/indexing/phpince.index.php?loader=okloader&hash=".sha1($PHPINCE_secured["hash"])."\"></iframe>";
 		$LOCK_INSTALL = fopen('lock.phpince', 'w');
 	break;
 	case "lock":
@@ -406,7 +406,7 @@ $PHPINCE_secured = array(
 	break;
 }
 echo "</section>";
-echo "<footer>Powered by <a href=\"http://phpince.com\">PHPince Website</a> | Copyright &copy; 2011 - 2014 Dominik Hulla<br>Released as free software without warranties under <a href=\"http://phpince.com/page_19\">GNU GPL v3</a> (or later).<p>&nbsp;</p></footer>
+echo "<footer>Powered by <a href=\"http://phpince.org\">PHPince Website</a> | Copyright &copy; 2011 - 2014 Dominik Hulla<br>Released as free software without warranties under <a href=\"http://phpince.org/page_19\">GNU GPL v3</a> (or later).<p>&nbsp;</p></footer>
 </div>
 </body>
 </html>";

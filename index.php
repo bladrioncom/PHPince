@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------+
 | PHPince Website
 | Copyright (c) 2011 - 2014 Dominik Hulla
-| Web: http://phpince.com
+| Web: http://phpince.org
 | Author: Dominik Hulla / dh@bladrion.com
 | Developer: Bladrion Technologies (http://bladrion.com)
 +----------------------------------------------------------------------+
@@ -336,8 +336,8 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
     </div>
     <footer>
     	<div id=\"box\">
-        	<div class=\"copy\">Powered by <a href=\"http://phpince.com\">PHPince Website</a> ".$PHPINCE_system["system"]["SYSTEM"].", copyright &copy; 2011 - 2014 by <a href=\"http://bladrion.com\">Dominik Hulla</a>.</div>
-            <div class=\"lic\">Released as free software without warranties under <a href=\"http://phpince.com/page/19\">GNU GPL v3</a>(or later).</div>
+        	<div class=\"copy\">Powered by <a href=\"http://phpince.org\">PHPince Website</a> ".$PHPINCE_system["system"]["SYSTEM"].", copyright &copy; 2011 - 2014 by <a href=\"http://bladrion.com\">Dominik Hulla</a>.</div>
+            <div class=\"lic\">Released as free software without warranties under <a href=\"http://phpince.org/page/19\">GNU GPL v3</a>(or later).</div>
         </div>
     </footer>
 </body>
@@ -405,7 +405,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 								<input type=\"submit\" value=\"".$PHPINCE_LANG[124]."\" />";
 							echo "</div>
 							<div id=\"footer\">
-								".$PHPINCE_LANG[1]." <a href=\"http://phpince.com\">PHPince - ".$PHPINCE_LANG[2]."</a>
+								".$PHPINCE_LANG[1]." <a href=\"http://phpince.org\">PHPince - ".$PHPINCE_LANG[2]."</a>
 							</div>
 						</div>
 					</div></form>
@@ -485,7 +485,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 								<input type=\"submit\" value=\"".$PHPINCE_LANG[124]."\" />";
 							echo "</div>
 							<div id=\"footer\">
-								".$PHPINCE_LANG[1]." <a href=\"http://phpince.com\">PHPince - ".$PHPINCE_LANG[2]."</a>
+								".$PHPINCE_LANG[1]." <a href=\"http://phpince.org\">PHPince - ".$PHPINCE_LANG[2]."</a>
 							</div>
 						</div>
 					</div></form>
@@ -562,7 +562,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 								<input type=\"submit\" value=\"".$PHPINCE_LANG[112]."\" />";
 							echo "</div>
 							<div id=\"footer\">
-								".$PHPINCE_LANG[1]." <a href=\"http://phpince.com\">PHPince - ".$PHPINCE_LANG[2]."</a>
+								".$PHPINCE_LANG[1]." <a href=\"http://phpince.org\">PHPince - ".$PHPINCE_LANG[2]."</a>
 							</div>
 						</div>
 					</div></form>
@@ -651,7 +651,7 @@ if((!empty($_GET["phpince-panel"]))&&($_GET["phpince-panel"]==1)){
 								}
 							echo "</div>
 							<div id=\"footer\">
-								".$PHPINCE_LANG[1]." <a target=\"_blank\" href=\"http://phpince.com\">PHPince - ".$PHPINCE_LANG[2]."</a>
+								".$PHPINCE_LANG[1]." <a target=\"_blank\" href=\"http://phpince.org\">PHPince - ".$PHPINCE_LANG[2]."</a>
 							</div>
 						</div>
 					</div></form>
