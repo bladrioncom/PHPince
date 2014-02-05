@@ -194,6 +194,7 @@ if(bl_logincheck($PHPince_logon)){
 						$zipArchive ->close();
 						unlink($file);
 						bl_rmdir("update/PHPince-master/install");
+						bl_rmdir("update/PHPince-master/phpince-panel/phpince-style");
 						include "update/PHPince-master/update/phpince.run.php";
 						bl_rmdir("update/PHPince-master/update/");
 						recurse_copy("update/PHPince-master/", "../../../");
