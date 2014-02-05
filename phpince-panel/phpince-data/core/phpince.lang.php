@@ -275,6 +275,9 @@ $PHPINCE_LANG = array(
 		1521 => 'Added new category:',
 		1522 => 'No category were found',
 		1523 => 'Editing article',
+		1524 => 'Scaled article',
+		1525 => 'Full article',
+		1526 => 'View',
 	//Webadmin: Apps
 		1600 => 'Modules',
 		1601 => 'Folder module',
@@ -602,6 +605,9 @@ $PHPINCE_LANG = array(
 		1521 => 'Pridal novú kategóriu:',
 		1522 => 'Neboli vytvorené žiadne kategórie',
 		1523 => 'Úprava článku',
+		1524 => 'Zmenšený článok',
+		1525 => 'Celý článok',
+		1526 => 'Zobraziť',
 	//Webadmin: Apps
 		1600 => 'Moduly',
 		1601 => 'Priečinok modulu',
@@ -929,6 +935,9 @@ $PHPINCE_LANG = array(
 		1521 => 'Přidal novou kategorii:',
 		1522 => 'Nebyli vytvořené žádné kategorie',
 		1523 => 'Úprava článku',
+		1524 => 'Zmenšený článek',
+		1525 => 'Celý článek',
+		1526 => 'Zobrazit',
 	//Webadmin: Apps
 		1600 => 'Moduly',
 		1601 => 'Složka modulů',

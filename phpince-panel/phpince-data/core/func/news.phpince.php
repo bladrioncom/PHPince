@@ -30,7 +30,7 @@ if($PHPINCE_perms["news"]){
 				if((empty($_POST["title"]))||(empty($_POST["text"]))){
 					echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[1505]."</div>";
 				} else {
-					bl_query("INSERT INTO `".$PHPince_logon["prefix"]."phpince_news`(`created`, `edited`, `autor`, `title`, `content`, `ncat`) VALUES (?, ?, ?, ?, ?, ?)", array(bl_date(), bl_date(), $PHPINCE_user["id"], bl_slay($_POST["title"]), $_POST["text"], bl_slay($_POST["cat"])), $PHPince_logon["login"]);
+					bl_query("INSERT INTO `".$PHPince_logon["prefix"]."phpince_news`(`created`, `edited`, `autor`, `title`, `min_content`, `content`, `ncat`) VALUES (?, ?, ?, ?, ?, ?, ?)", array(bl_date(), bl_date(), $PHPINCE_user["id"], bl_slay($_POST["title"]), $_POST["min_text"], $_POST["text"], bl_slay($_POST["cat"])), $PHPince_logon["login"]);
 					bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_1506} ".$_POST["title"]), $PHPince_logon["login"]);
 					bl_redirect("/panel/".$_GET["func"]);
 				}
@@ -45,7 +45,11 @@ if($PHPINCE_perms["news"]){
 				echo "<option value=\"".$PHPINCE_catf["id"]."\">".$PHPINCE_catf["cat"]."</option>";
 			}
 			echo "</select>";
+			echo "<h2>".$PHPINCE_LANG[1524]."&nbsp;&raquo;&nbsp;<small><a id=\"atextareamineditor\" href=\"javascript: bl_show_mintextarea('show');\">".$PHPINCE_LANG[1526]."</a></small></h2>";
+			if(empty($_POST["min_text"])){ $_POST["min_text"] = ""; }
+			echo "<div id=\"textareamineditor\"><textarea style=\"width:100%;min-height:300px;\" name=\"min_text\" id=\"min_editor\">".$_POST["min_text"]."</textarea></div>";
 			if(empty($_POST["text"])){ $_POST["text"] = ""; }
+			echo "<p>&nbsp;</p><h2>".$PHPINCE_LANG[1525]."</h2>";
 			echo "<textarea style=\"width:100%;min-height:300px;\" name=\"text\" id=\"editor\">".$_POST["text"]."</textarea>";
 			echo "<input type=\"submit\" value=\"".$PHPINCE_LANG[9]."\">";
 			echo "</form></div>";
@@ -83,10 +87,11 @@ if($PHPINCE_perms["news"]){
 						if((empty($_POST["title"]))||(empty($_POST["text"]))){
 							echo "<div class=\"warn no\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_no.png\">".$PHPINCE_LANG[1505]."</div>";
 						} else {
-							bl_query("UPDATE `".$PHPince_logon["prefix"]."phpince_news` SET `edited`= ?,`title`= ?,`content`= ?,`ncat`= ? WHERE id = ?", array(bl_date(), bl_slay($_POST["title"]), $_POST["text"], bl_slay($_POST["cat"]), $_GET["id"]), $PHPince_logon["login"]);
+							bl_query("UPDATE `".$PHPince_logon["prefix"]."phpince_news` SET `edited`= ?,`title`= ?,`content`= ?,`min_content`= ?,`ncat`= ? WHERE id = ?", array(bl_date(), bl_slay($_POST["title"]), $_POST["text"], $_POST["min_text"], bl_slay($_POST["cat"]), $_GET["id"]), $PHPince_logon["login"]);
 							bl_query("INSERT INTO ".$PHPince_logon["prefix"]."phpince_log (account, ip, adate, action, msg) VALUES (?, ?, ?, ?, ?)", array($PHPINCE_user["id"], $_SERVER['REMOTE_ADDR'], bl_date(), "{SYSTEM}", "{TRANSLATE_1507} <a target=\"_blank\" href=\"/topic/".$PHPINCE_NAV_V["id"]."\">".$_POST["title"]."</a>"), $PHPince_logon["login"]);
 							$PHPINCE_NAV_V["title"] = $_POST["title"];
 							$PHPINCE_NAV_V["content"] = $_POST["text"];
+							$PHPINCE_NAV_V["min_content"] = $_POST["min_text"];
 							echo "<div class=\"warn ok\"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/warn_ok.png\">".$PHPINCE_LANG[1508]."</div>";
 						}
 					}
@@ -107,6 +112,14 @@ if($PHPINCE_perms["news"]){
 							}
 						}
 						echo "</select>";
+						if(empty($PHPINCE_NAV_V["min_content"])){
+							echo "<h2>".$PHPINCE_LANG[1524]."&nbsp;&raquo;&nbsp;<small><a id=\"atextareamineditor\" href=\"javascript: bl_show_mintextarea('show');\">".$PHPINCE_LANG[1526]."</a></small></h2>";
+							echo "<div id=\"textareamineditor\"><textarea style=\"width:100%;min-height:300px;\" name=\"min_text\" id=\"min_editor\">".htmlspecialchars($PHPINCE_NAV_V["min_content"])."</textarea></div>";
+						} else {
+							echo "<h2>".$PHPINCE_LANG[1524]."&nbsp;&raquo;&nbsp;</h2>";
+							echo "<div id=\"textareamineditor\" style=\"display:block;\"><textarea style=\"width:100%;min-height:300px;\" name=\"min_text\" id=\"min_editor\">".htmlspecialchars($PHPINCE_NAV_V["min_content"])."</textarea></div>";
+						}
+						echo "<p>&nbsp;</p><h2>".$PHPINCE_LANG[1525]."</h2>";
 						echo "<textarea style=\"width:100%;min-height:300px;\" name=\"text\" id=\"editor\">".htmlspecialchars($PHPINCE_NAV_V["content"])."</textarea>";
 						echo "<input type=\"submit\" value=\"".$PHPINCE_LANG[9]."\">";
 					echo "</form></div>";

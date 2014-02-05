@@ -121,3 +121,11 @@ function bl_hide(value){
 	$('a#show'+value).replaceWith('<a id="show'+value+'" href="javascript: bl_show('+value+');"><img src=\"/phpince-panel/phpince-data/core/tems/phpince-dashboard/icon/info.png\"></a>');
 	$("div#hide"+ value).hide(1000);
 }
+function bl_show_mintextarea(value){
+	switch(value){
+		case "show":
+			$("div#textareamineditor").show("slow");
+			$('a#atextareamineditor').replaceWith('<span></span>');
+		break;
+	}
+}

@@ -98,3 +98,11 @@ footer div#box a { color:#3399cc; text-decoration:none; }
 footer div#box a:hover { text-decoration:underline; }
 footer div#box div.copy { float:left; }
 footer div#box div.lic { float:right; }
+
+/* SPECIAL */
+div#textareamineditor {
+	display:none;
+}
+
+
+
